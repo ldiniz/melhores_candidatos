@@ -1,0 +1,9 @@
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\bin\Debug\MelhoresCandidatos.exe.config
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\bin\Debug\MelhoresCandidatos.exe
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\bin\Debug\MelhoresCandidatos.pdb
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.Index.resources
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.Properties.Resources.resources
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csproj.GenerateResource.Cache
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.exe
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.pdb
+C:\Users\Letícia\Documents\Visual Studio 2015\Projects\MelhoresCandidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csprojResolveAssemblyReference.cache
