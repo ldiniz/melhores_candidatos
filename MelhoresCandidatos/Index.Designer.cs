@@ -71,10 +71,31 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panelResultados = new System.Windows.Forms.Panel();
+            this.containerResultados = new System.Windows.Forms.TableLayoutPanel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panelConfiguracoes = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panelHistoricoBuscas = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelBuscarCurriculos.SuspendLayout();
             this.containerCargo.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panelResultados.SuspendLayout();
+            this.containerResultados.SuspendLayout();
+            this.panelConfiguracoes.SuspendLayout();
+            this.panelHistoricoBuscas.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,12 +134,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.button2.Location = new System.Drawing.Point(3, 69);
+            this.button2.Location = new System.Drawing.Point(24, 69);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(194, 60);
             this.button2.TabIndex = 1;
             this.button2.Text = "Histórico de Buscas";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -152,6 +174,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "Configurações";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // panelBuscarCurriculos
             // 
@@ -199,9 +222,9 @@
             this.containerCargo.Name = "containerCargo";
             this.containerCargo.RowCount = 1;
             this.containerCargo.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.containerCargo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.containerCargo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.containerCargo.Size = new System.Drawing.Size(692, 109);
+            this.containerCargo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this.containerCargo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this.containerCargo.Size = new System.Drawing.Size(689, 115);
             this.containerCargo.TabIndex = 41;
             // 
             // tableLayoutPanel2
@@ -387,6 +410,7 @@
             this.button6.TabIndex = 18;
             this.button6.Text = "Voltar";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button_voltar_Click);
             // 
             // label8
             // 
@@ -517,6 +541,7 @@
             this.button4.TabIndex = 5;
             this.button4.Text = "Buscar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.buttonBuscarCurriculos_Click);
             // 
             // textBox1
             // 
@@ -544,6 +569,201 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Buscar Currículos";
             // 
+            // panelResultados
+            // 
+            this.panelResultados.Controls.Add(this.containerResultados);
+            this.panelResultados.Controls.Add(this.label13);
+            this.panelResultados.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelResultados.Location = new System.Drawing.Point(0, 0);
+            this.panelResultados.Name = "panelResultados";
+            this.panelResultados.Size = new System.Drawing.Size(1076, 656);
+            this.panelResultados.TabIndex = 42;
+            this.panelResultados.Visible = false;
+            // 
+            // containerResultados
+            // 
+            this.containerResultados.AutoSize = true;
+            this.containerResultados.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.containerResultados.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.containerResultados.ColumnCount = 8;
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerResultados.Controls.Add(this.label14, 0, 0);
+            this.containerResultados.Controls.Add(this.label15, 1, 0);
+            this.containerResultados.Controls.Add(this.label16, 2, 0);
+            this.containerResultados.Controls.Add(this.label17, 3, 0);
+            this.containerResultados.Controls.Add(this.label22, 4, 0);
+            this.containerResultados.Controls.Add(this.label23, 5, 0);
+            this.containerResultados.Controls.Add(this.label24, 6, 0);
+            this.containerResultados.Controls.Add(this.label25, 7, 0);
+            this.containerResultados.Location = new System.Drawing.Point(30, 112);
+            this.containerResultados.Name = "containerResultados";
+            this.containerResultados.RowCount = 1;
+            this.containerResultados.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.containerResultados.Size = new System.Drawing.Size(998, 56);
+            this.containerResultados.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(4, 15);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 25);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Nome";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(85, 15);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 25);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Idade";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(164, 15);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(146, 25);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Escolaridade";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(317, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(118, 25);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Pretensão";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(442, 15);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 25);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Estado";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(532, 15);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(85, 25);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "Cidade";
+            // 
+            // label24
+            // 
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(624, 15);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(107, 25);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Currículo";
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(738, 15);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(118, 25);
+            this.label25.TabIndex = 7;
+            this.label25.Text = "Entrevista";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(54, 42);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(182, 32);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Resultados";
+            // 
+            // panelConfiguracoes
+            // 
+            this.panelConfiguracoes.Controls.Add(this.label27);
+            this.panelConfiguracoes.Controls.Add(this.button8);
+            this.panelConfiguracoes.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelConfiguracoes.Location = new System.Drawing.Point(0, 0);
+            this.panelConfiguracoes.Name = "panelConfiguracoes";
+            this.panelConfiguracoes.Size = new System.Drawing.Size(1076, 656);
+            this.panelConfiguracoes.TabIndex = 2;
+            this.panelConfiguracoes.Visible = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(24, 24);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(231, 32);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Configurações";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(719, 24);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(114, 37);
+            this.button8.TabIndex = 42;
+            this.button8.Text = "Voltar";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button_voltar_Click);
+            // 
+            // panelHistoricoBuscas
+            // 
+            this.panelHistoricoBuscas.Controls.Add(this.label26);
+            this.panelHistoricoBuscas.Controls.Add(this.button9);
+            this.panelHistoricoBuscas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHistoricoBuscas.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelHistoricoBuscas.Location = new System.Drawing.Point(0, 0);
+            this.panelHistoricoBuscas.Name = "panelHistoricoBuscas";
+            this.panelHistoricoBuscas.Size = new System.Drawing.Size(1076, 656);
+            this.panelHistoricoBuscas.TabIndex = 2;
+            this.panelHistoricoBuscas.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(24, 24);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(312, 32);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Histórico de Buscas";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(719, 24);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(114, 37);
+            this.button9.TabIndex = 43;
+            this.button9.Text = "Voltar";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button_voltar_Click);
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,6 +771,9 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1076, 656);
             this.Controls.Add(this.panelBuscarCurriculos);
+            this.Controls.Add(this.panelHistoricoBuscas);
+            this.Controls.Add(this.panelConfiguracoes);
+            this.Controls.Add(this.panelResultados);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
@@ -562,6 +785,14 @@
             this.containerCargo.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panelResultados.ResumeLayout(false);
+            this.panelResultados.PerformLayout();
+            this.containerResultados.ResumeLayout(false);
+            this.containerResultados.PerformLayout();
+            this.panelConfiguracoes.ResumeLayout(false);
+            this.panelConfiguracoes.PerformLayout();
+            this.panelHistoricoBuscas.ResumeLayout(false);
+            this.panelHistoricoBuscas.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -612,6 +843,23 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TableLayoutPanel containerCargo;
+        private System.Windows.Forms.Panel panelResultados;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TableLayoutPanel containerResultados;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Panel panelHistoricoBuscas;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panelConfiguracoes;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
     }
 }
 
