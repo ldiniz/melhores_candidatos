@@ -30,8 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelBuscarCurriculos = new System.Windows.Forms.Panel();
+            this.panelBuscarCurriculos2 = new System.Windows.Forms.Panel();
+            this.panelBuscarCurriculos3 = new System.Windows.Forms.Panel();
             this.containerCargo = new System.Windows.Forms.TableLayoutPanel();
             this.containerDeficiencia = new System.Windows.Forms.TableLayoutPanel();
+            this.containerIdioma = new System.Windows.Forms.TableLayoutPanel();
+            this.containerEscolaridade = new System.Windows.Forms.TableLayoutPanel();
+            this.containerCompetencia = new System.Windows.Forms.TableLayoutPanel();
             this.containerEndereco = new System.Windows.Forms.TableLayoutPanel();
             this.panelResultados = new System.Windows.Forms.Panel();
             this.containerResultados = new System.Windows.Forms.TableLayoutPanel();
@@ -40,8 +45,13 @@
             this.panelAgendaEntrevistas = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelBuscarCurriculos.SuspendLayout();
+            this.panelBuscarCurriculos2.SuspendLayout();
+            this.panelBuscarCurriculos3.SuspendLayout();
             this.containerCargo.SuspendLayout();
             this.containerDeficiencia.SuspendLayout();
+            this.containerIdioma.SuspendLayout();
+            this.containerEscolaridade.SuspendLayout();
+            this.containerCompetencia.SuspendLayout();
             this.containerEndereco.SuspendLayout();
             this.panelResultados.SuspendLayout();
             this.containerResultados.SuspendLayout();
@@ -69,7 +79,6 @@
             // panelBuscarCurriculos
             // 
             this.panelBuscarCurriculos.AutoScroll = true;
-            this.panelBuscarCurriculos.Controls.Add(this.containerCargo);
             this.panelBuscarCurriculos.Controls.Add(this.containerEndereco);
             this.panelBuscarCurriculos.Controls.Add(this.containerDeficiencia);
             this.panelBuscarCurriculos.Controls.Add(this.buttonVoltar());
@@ -85,10 +94,11 @@
             this.panelBuscarCurriculos.Controls.Add(this.getComboBoxCNH());
             this.panelBuscarCurriculos.Controls.Add(this.getComboBoxSexo());
             this.panelBuscarCurriculos.Controls.Add(this.getLabelSexo());
-            this.panelBuscarCurriculos.Controls.Add(this.buttonBuscar());
+            this.panelBuscarCurriculos.Controls.Add(this.buttonProximo());
             this.panelBuscarCurriculos.Controls.Add(this.getTextBox1());
             this.panelBuscarCurriculos.Controls.Add(this.getLabelBuscarCurriculos());
             this.panelBuscarCurriculos.Controls.Add(this.getLabelVagas());
+            this.panelBuscarCurriculos.Controls.Add(this.panelBuscarCurriculos2);
             this.panelBuscarCurriculos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBuscarCurriculos.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelBuscarCurriculos.Location = new System.Drawing.Point(0, 0);
@@ -96,6 +106,39 @@
             this.panelBuscarCurriculos.Size = new System.Drawing.Size(1076, 656);
             this.panelBuscarCurriculos.TabIndex = 7;
             this.panelBuscarCurriculos.Visible = false;
+            // 
+            // panelBuscarCurriculos2
+            // 
+            this.panelBuscarCurriculos2.AutoScroll = true;
+            this.panelBuscarCurriculos2.Controls.Add(this.containerCargo);
+            this.panelBuscarCurriculos2.Controls.Add(this.containerIdioma);
+            this.panelBuscarCurriculos2.Controls.Add(this.buttonVoltar());
+            this.panelBuscarCurriculos2.Controls.Add(this.buttonProximo2());
+            this.panelBuscarCurriculos2.Controls.Add(this.getLabelBuscarCurriculos());
+            this.panelBuscarCurriculos2.Controls.Add(this.panelBuscarCurriculos3);
+            this.panelBuscarCurriculos2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBuscarCurriculos2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelBuscarCurriculos2.Location = new System.Drawing.Point(0, 0);
+            this.panelBuscarCurriculos2.Name = "panelBuscarCurriculos2";
+            this.panelBuscarCurriculos2.Size = new System.Drawing.Size(1076, 656);
+            this.panelBuscarCurriculos2.TabIndex = 8;
+            this.panelBuscarCurriculos2.Visible = false;
+            // 
+            // panelBuscarCurriculos3
+            // 
+            this.panelBuscarCurriculos3.AutoScroll = true;
+            this.panelBuscarCurriculos3.Controls.Add(this.buttonVoltar());
+            this.panelBuscarCurriculos3.Controls.Add(this.buttonBuscar());
+            this.panelBuscarCurriculos3.Controls.Add(this.containerEscolaridade);
+            this.panelBuscarCurriculos3.Controls.Add(this.containerCompetencia);
+            this.panelBuscarCurriculos3.Controls.Add(this.getLabelBuscarCurriculos());
+            this.panelBuscarCurriculos3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBuscarCurriculos3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelBuscarCurriculos3.Location = new System.Drawing.Point(0, 0);
+            this.panelBuscarCurriculos3.Name = "panelBuscarCurriculos3";
+            this.panelBuscarCurriculos3.Size = new System.Drawing.Size(1076, 656);
+            this.panelBuscarCurriculos3.TabIndex = 8;
+            this.panelBuscarCurriculos3.Visible = false;
             // 
             // containerCargo
             // 
@@ -109,7 +152,7 @@
             this.containerCargo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.containerCargo.Controls.Add(this.buttonPlusCargo(), 0, 0);
             this.containerCargo.Controls.Add(this.addCargo(), 1, 0);
-            this.containerCargo.Location = new System.Drawing.Point(30, 347);
+            this.containerCargo.Location = new System.Drawing.Point(10, 100);
             this.containerCargo.Name = "containerCargo";
             this.containerCargo.TabIndex = 41;
             // 
@@ -121,25 +164,67 @@
             this.containerDeficiencia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 666F));
             this.containerDeficiencia.RowCount = 1;
             this.containerDeficiencia.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.containerDeficiencia.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.containerDeficiencia.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.containerDeficiencia.Controls.Add(this.buttonPlusDeficiencia(), 0, 0);
             this.containerDeficiencia.Controls.Add(this.addDeficiencia(), 1, 0);
-            this.containerDeficiencia.Location = new System.Drawing.Point(30, 257);
+            this.containerDeficiencia.Location = new System.Drawing.Point(30, 380);
             this.containerDeficiencia.Name = "containerDeficiencia";
             this.containerDeficiencia.TabIndex = 41;
+            // 
+            // containerIdioma
+            // 
+            this.containerIdioma.AutoSize = true;
+            this.containerIdioma.ColumnCount = 2;
+            this.containerIdioma.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerIdioma.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.containerIdioma.RowCount = 1;
+            this.containerIdioma.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.containerIdioma.Controls.Add(this.buttonPlusIdioma(), 0, 0);
+            this.containerIdioma.Controls.Add(this.addIdioma(), 1, 0);
+            this.containerIdioma.Location = new System.Drawing.Point(735, 100);
+            this.containerIdioma.Name = "containerIdioma";
+            this.containerIdioma.TabIndex = 41;
+            // 
+            // containerEscolaridade
+            // 
+            this.containerEscolaridade.AutoSize = true;
+            this.containerEscolaridade.ColumnCount = 2;
+            this.containerEscolaridade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerEscolaridade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 480F));
+            this.containerEscolaridade.RowCount = 1;
+            this.containerEscolaridade.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.containerEscolaridade.Controls.Add(this.buttonPlusEscolaridade(), 0, 0);
+            this.containerEscolaridade.Controls.Add(this.addEscolaridade(), 1, 0);
+            this.containerEscolaridade.Location = new System.Drawing.Point(30, 100);
+            this.containerEscolaridade.Name = "containerEscolaridade";
+            this.containerEscolaridade.TabIndex = 41;
+            // 
+            // containerCompetencia
+            // 
+            this.containerCompetencia.AutoSize = true;
+            this.containerCompetencia.ColumnCount = 2;
+            this.containerCompetencia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.containerCompetencia.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 480F));
+            this.containerCompetencia.RowCount = 1;
+            this.containerCompetencia.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.containerCompetencia.Controls.Add(this.buttonPlusCompetencia(), 0, 0);
+            this.containerCompetencia.Controls.Add(this.addCompetencia(), 1, 0);
+            this.containerCompetencia.Location = new System.Drawing.Point(550, 100);
+            this.containerCompetencia.Name = "containerCompetencia";
+            this.containerCompetencia.TabIndex = 41;
             // 
             // containerEndereco
             // 
             this.containerEndereco.AutoSize = true;
             this.containerEndereco.ColumnCount = 2;
             this.containerEndereco.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.containerEndereco.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 900F));
+            this.containerEndereco.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.containerEndereco.RowCount = 1;
             this.containerEndereco.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.containerEndereco.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.containerEndereco.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.containerEndereco.Controls.Add(this.buttonPlusEndereco(), 0, 0);
             this.containerEndereco.Controls.Add(this.addEndereco(), 1, 0);
-            this.containerEndereco.Location = new System.Drawing.Point(30, 302);
+            this.containerEndereco.Location = new System.Drawing.Point(500, 380);
             this.containerEndereco.Name = "containerEndereco";
             this.containerEndereco.TabIndex = 41;
             // 
@@ -225,6 +310,8 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1076, 656);
             this.Controls.Add(this.panelBuscarCurriculos);
+            this.Controls.Add(this.panelBuscarCurriculos2);
+            this.Controls.Add(this.panelBuscarCurriculos3);
             this.Controls.Add(this.panelHistoricoBuscas);
             this.Controls.Add(this.panelAgendaEntrevistas);
             this.Controls.Add(this.panelConfiguracoes);
@@ -237,10 +324,20 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelBuscarCurriculos.ResumeLayout(false);
             this.panelBuscarCurriculos.PerformLayout();
+            this.panelBuscarCurriculos2.ResumeLayout(false);
+            this.panelBuscarCurriculos2.PerformLayout();
+            this.panelBuscarCurriculos3.ResumeLayout(false);
+            this.panelBuscarCurriculos3.PerformLayout();
             this.containerCargo.ResumeLayout(false);
             this.containerCargo.PerformLayout();
             this.containerDeficiencia.ResumeLayout(false);
             this.containerDeficiencia.PerformLayout();
+            this.containerEscolaridade.ResumeLayout(false);
+            this.containerEscolaridade.PerformLayout();
+            this.containerCompetencia.ResumeLayout(false);
+            this.containerCompetencia.PerformLayout();
+            this.containerIdioma.ResumeLayout(false);
+            this.containerIdioma.PerformLayout();
             this.containerEndereco.ResumeLayout(false);
             this.containerEndereco.PerformLayout();
             this.panelResultados.ResumeLayout(false);
@@ -261,8 +358,13 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panelBuscarCurriculos;
+        private System.Windows.Forms.Panel panelBuscarCurriculos2;
+        private System.Windows.Forms.Panel panelBuscarCurriculos3;
         private System.Windows.Forms.TableLayoutPanel containerCargo;
         private System.Windows.Forms.TableLayoutPanel containerDeficiencia;
+        private System.Windows.Forms.TableLayoutPanel containerIdioma;
+        private System.Windows.Forms.TableLayoutPanel containerEscolaridade;
+        private System.Windows.Forms.TableLayoutPanel containerCompetencia;
         private System.Windows.Forms.TableLayoutPanel containerEndereco;
         private System.Windows.Forms.Panel panelResultados;
         private System.Windows.Forms.TableLayoutPanel containerResultados;
