@@ -1,0 +1,16 @@
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\obj\Debug\MelhoresCandidatosTests.csprojResolveAssemblyReference.cache
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MelhoresCandidatosTests.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MelhoresCandidatosTests.pdb
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MelhoresCandidatos.exe
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Bson.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Driver.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MelhoresCandidatos.pdb
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Bson.xml
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Driver.xml
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\bin\Debug\MongoDB.Driver.Core.xml
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\obj\Debug\MelhoresCandidatosTests.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatosTests\obj\Debug\MelhoresCandidatosTests.pdb
