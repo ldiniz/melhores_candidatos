@@ -7,13 +7,13 @@ namespace MelhoresCandidatos
     public partial class Index : Form
     {
         Configuracoes conf;
-        MongoDBClient mongo;
+        public MongoDBClient mongo;
 
         public Index()
         {
+            mongo = new MongoDBClient();
             InitializeComponent();
             conf = new Configuracoes();
-            mongo = new MongoDBClient();
         }
 
         // 
@@ -632,8 +632,8 @@ namespace MelhoresCandidatos
         { 
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new System.Drawing.Point(25, 100);
-            newCheckBox.Size = new System.Drawing.Size(199, 25);
+            newCheckBox.Location = new Point(25, 100);
+            newCheckBox.Size = new Size(199, 25);
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Número de Vagas";
             newCheckBox.UseVisualStyleBackColor = true;
@@ -795,8 +795,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(150, 25);
-            newComboBox.Items.AddRange(new object[] {
-            "Iniciante",});
+            newComboBox.Items.AddRange(mongo.DistinctField("idiomas.nivel"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -807,8 +806,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(new object[] {
-            "Superior",});
+            newComboBox.Items.AddRange(mongo.DistinctField("formacao.grau"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -819,8 +817,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(new object[] {
-            "Informática",});
+            newComboBox.Items.AddRange(mongo.DistinctField("competencias.area"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -831,8 +828,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(new object[] {
-            "HTML",});
+            newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -843,8 +839,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(new object[] {
-            "HTML",});
+            newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -855,8 +850,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(new object[] {
-            "HTML",});
+            newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -867,8 +861,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(848, 294);
             newComboBox.Size = new Size(188, 33);
-            newComboBox.Items.AddRange(new object[] {
-            "Eldorado",});
+            newComboBox.Items.AddRange(mongo.DistinctField("bairro"));
             newComboBox.TabIndex = 26;
 
             return newComboBox;
@@ -879,8 +872,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(521, 294);
             newComboBox.Size = new Size(188, 33);
-            newComboBox.Items.AddRange(new object[] {
-            "Contagem",});
+            newComboBox.Items.AddRange(mongo.DistinctField("cidade"));
             newComboBox.TabIndex = 25;
 
             return newComboBox;
@@ -891,8 +883,7 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(180, 294);
             newComboBox.Size = new Size(189, 33);
-            newComboBox.Items.AddRange(new object[] {
-            "MG",});
+            newComboBox.Items.AddRange(mongo.DistinctField("estado"));
             newComboBox.TabIndex = 23;
 
             return newComboBox;
@@ -905,6 +896,7 @@ namespace MelhoresCandidatos
             newComboBox.FormattingEnabled = true;
             newComboBox.Location = new Point(430, 58);
             newComboBox.Size = new Size(246, 33);
+            newComboBox.Items.AddRange(mongo.DistinctField("experiencia.nivel"));
             newComboBox.TabIndex = 31;
 
             return newComboBox;
@@ -917,6 +909,7 @@ namespace MelhoresCandidatos
             newComboBox.FormattingEnabled = true;
             newComboBox.Location = new Point(180, 254);
             newComboBox.Size = new Size(189, 31);
+            newComboBox.Items.AddRange(mongo.DistinctField("especificacao_deficiencia"));
             newComboBox.TabIndex = 20;
 
             return newComboBox;
@@ -925,15 +918,11 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxEstadoCivil()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
-            newComboBox.Items.AddRange(new object[] {
-            "Solteiro",
-            "Casado",
-            "Divorciado",
-            "Viúvo"});
-            newComboBox.Location = new System.Drawing.Point(180, 300);
-            newComboBox.Size = new System.Drawing.Size(189, 31);
+            newComboBox.Items.AddRange(mongo.DistinctField("estado_civil"));
+            newComboBox.Location = new Point(180, 300);
+            newComboBox.Size = new Size(189, 31);
             newComboBox.TabIndex = 12;
 
             return newComboBox;
@@ -942,16 +931,11 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxCNH()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
-            newComboBox.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E"});
-            newComboBox.Location = new System.Drawing.Point(517, 160);
-            newComboBox.Size = new System.Drawing.Size(188, 31);
+            newComboBox.Items.AddRange(mongo.DistinctField("cnh"));
+            newComboBox.Location = new Point(517, 160);
+            newComboBox.Size = new Size(188, 31);
             newComboBox.TabIndex = 8;
 
             return newComboBox;
@@ -960,13 +944,11 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxSexo()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
-            newComboBox.Items.AddRange(new object[] {
-            "Feminino",
-            "Masculino"});
-            newComboBox.Location = new System.Drawing.Point(180, 160);
-            newComboBox.Size = new System.Drawing.Size(189, 31);
+            newComboBox.Items.AddRange(mongo.DistinctField("sexo"));
+            newComboBox.Location = new Point(180, 160);
+            newComboBox.Size = new Size(189, 31);
             newComboBox.TabIndex = 7;
 
             return newComboBox;
@@ -979,8 +961,8 @@ namespace MelhoresCandidatos
         {
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new System.Drawing.Point(435, 260);
-            newCheckBox.Size = new System.Drawing.Size(191, 29);
+            newCheckBox.Location = new Point(435, 260);
+            newCheckBox.Size = new Size(191, 29);
             newCheckBox.TabIndex = 14;
             newCheckBox.Text = "Desempregado";
             newCheckBox.UseVisualStyleBackColor = true;
@@ -992,8 +974,8 @@ namespace MelhoresCandidatos
         {
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new System.Drawing.Point(435, 300);
-            newCheckBox.Size = new System.Drawing.Size(335, 29);
+            newCheckBox.Location = new Point(435, 300);
+            newCheckBox.Size = new Size(335, 29);
             newCheckBox.TabIndex = 13;
             newCheckBox.Text = "Disponibilidade para viagens";
             newCheckBox.UseVisualStyleBackColor = true;
@@ -1005,8 +987,8 @@ namespace MelhoresCandidatos
         {
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new System.Drawing.Point(435, 260);
-            newCheckBox.Size = new System.Drawing.Size(191, 29);
+            newCheckBox.Location = new Point(435, 260);
+            newCheckBox.Size = new Size(191, 29);
             newCheckBox.TabIndex = 14;
             newCheckBox.Text = "Incompleto";
             newCheckBox.UseVisualStyleBackColor = true;
