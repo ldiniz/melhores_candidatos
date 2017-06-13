@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,48 @@ namespace MelhoresCandidatos
     {
         Configuracoes conf;
         public MongoDBClient mongo;
+
+        //Informações Iniciais
+        TextBox NrVagas;
+        ComboBox Sexo;
+        ComboBox CNH;
+        TextBox InicioIdade;
+        TextBox FimIdade;
+        ComboBox EstadoCivil;
+        CheckBox Desempregado;
+        CheckBox DisponibilidadeViagens;
+
+        //Deficiência
+        ArrayList Deficiencia = new ArrayList();
+
+        //Localização
+        ArrayList Estado = new ArrayList();
+        ArrayList Cidade = new ArrayList();
+        ArrayList Bairro = new ArrayList();
+
+        //Experiência
+        ArrayList Cargo = new ArrayList();
+        ArrayList NivelCargo = new ArrayList();
+        ArrayList Experiencia = new ArrayList();
+        ArrayList Salario = new ArrayList();
+
+        //Línguas
+        ArrayList Idioma = new ArrayList();
+        ArrayList NivelIdioma = new ArrayList();
+
+        //Escolaridade
+        ArrayList Grau = new ArrayList();
+        ArrayList Incompleto = new ArrayList();
+        ArrayList Curso = new ArrayList();
+        ArrayList Instituicao = new ArrayList();
+        ArrayList InicioEscolaridade = new ArrayList();
+        ArrayList FimEscolaridade = new ArrayList();
+
+        //Competências
+        ArrayList Area = new ArrayList();
+        ArrayList Competencias1 = new ArrayList();
+        ArrayList Competencias2 = new ArrayList();
+        ArrayList Competencias3 = new ArrayList();
 
         public Index()
         {
@@ -230,6 +273,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(430, 58);
             textBox.Size = new Size(200, 33);
             textBox.TabIndex = 35;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Salario.Add(textBox);
 
             return textBox;
         }
@@ -241,6 +286,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(120, 5);
             textBox.Size = new Size(80, 25);
             textBox.TabIndex = 35;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Idioma.Add(textBox);
 
             return textBox;
         }
@@ -252,6 +299,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(143, 58);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 33;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Experiencia.Add(textBox);
 
             return textBox;
         }
@@ -263,6 +312,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(143, 8);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 30;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Cargo.Add(textBox);
 
             return textBox;
         }
@@ -274,6 +325,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(143, 8);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 30;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Curso.Add(textBox);
 
             return textBox;
         }
@@ -285,6 +338,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(143, 8);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 30;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Instituicao.Add(textBox);
 
             return textBox;
         }
@@ -296,6 +351,8 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(143, 8);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 30;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            InicioEscolaridade.Add(textBox);
 
             return textBox;
         }
@@ -307,36 +364,44 @@ namespace MelhoresCandidatos
             textBox.Location = new Point(143, 8);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 30;
+            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            FimEscolaridade.Add(textBox);
 
             return textBox;
         }
 
-        private TextBox getTextBox1()
+        private TextBox getTextBoxVagas()
         {
             TextBox newTextBox = new TextBox();
             newTextBox.Location = new Point(281, 100);
             newTextBox.Size = new Size(128, 33);
             newTextBox.TabIndex = 4;
+            newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            NrVagas = newTextBox;
 
             return newTextBox;
         }
 
-        private TextBox getTextBox3()
+        private TextBox getTextBoxFimIdade()
         {
             TextBox newTextBox = new TextBox();
             newTextBox.Location = new Point(289, 225);
             newTextBox.Size = new Size(80, 33);
             newTextBox.TabIndex = 16;
+            newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            FimIdade = newTextBox;
 
             return newTextBox;
         }
         
-        private TextBox getTextBox2()
+        private TextBox getTextBoxInicioIdade()
         {
             TextBox newTextBox = new TextBox();
             newTextBox.Location = new Point(180, 225);
             newTextBox.Size = new Size(72, 33);
             newTextBox.TabIndex = 15;
+            newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            InicioIdade = newTextBox;
 
             return newTextBox;
         }
@@ -797,6 +862,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(150, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("idiomas.nivel"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            NivelIdioma.Add(newComboBox);
 
             return newComboBox;
         }
@@ -808,6 +875,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(300, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("formacao.grau"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Grau.Add(newComboBox);
 
             return newComboBox;
         }
@@ -819,6 +888,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(300, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("competencias.area"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Area.Add(newComboBox);
 
             return newComboBox;
         }
@@ -830,6 +901,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(300, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Competencias1.Add(newComboBox);
 
             return newComboBox;
         }
@@ -841,6 +914,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(300, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Competencias2.Add(newComboBox);
 
             return newComboBox;
         }
@@ -852,6 +927,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(300, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Competencias3.Add(newComboBox);
 
             return newComboBox;
         }
@@ -863,6 +940,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(188, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("bairro"));
             newComboBox.TabIndex = 26;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Bairro.Add(newComboBox);
 
             return newComboBox;
         }
@@ -874,6 +953,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(188, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("cidade"));
             newComboBox.TabIndex = 25;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Cidade.Add(newComboBox);
 
             return newComboBox;
         }
@@ -885,6 +966,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(189, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("estado"));
             newComboBox.TabIndex = 23;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Estado.Add(newComboBox);
 
             return newComboBox;
         }
@@ -898,6 +981,8 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(246, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("experiencia.nivel"));
             newComboBox.TabIndex = 31;
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            NivelCargo.Add(newComboBox);
 
             return newComboBox;
         }
@@ -905,12 +990,13 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxDeficiencia()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Location = new Point(180, 254);
             newComboBox.Size = new Size(189, 31);
             newComboBox.Items.AddRange(mongo.DistinctField("especificacao_deficiencia"));
             newComboBox.TabIndex = 20;
+            Deficiencia.Add(newComboBox);
 
             return newComboBox;
         }
@@ -918,12 +1004,13 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxEstadoCivil()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Items.AddRange(mongo.DistinctField("estado_civil"));
             newComboBox.Location = new Point(180, 300);
             newComboBox.Size = new Size(189, 31);
             newComboBox.TabIndex = 12;
+            EstadoCivil = newComboBox;
 
             return newComboBox;
         }
@@ -931,12 +1018,13 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxCNH()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Items.AddRange(mongo.DistinctField("cnh"));
             newComboBox.Location = new Point(517, 160);
             newComboBox.Size = new Size(188, 31);
             newComboBox.TabIndex = 8;
+            CNH = newComboBox;
 
             return newComboBox;
         }
@@ -944,12 +1032,13 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxSexo()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Items.AddRange(mongo.DistinctField("sexo"));
             newComboBox.Location = new Point(180, 160);
             newComboBox.Size = new Size(189, 31);
             newComboBox.TabIndex = 7;
+            Sexo = newComboBox;
 
             return newComboBox;
         }
@@ -966,6 +1055,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 14;
             newCheckBox.Text = "Desempregado";
             newCheckBox.UseVisualStyleBackColor = true;
+            Desempregado = newCheckBox;
 
             return newCheckBox;
         }
@@ -979,6 +1069,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 13;
             newCheckBox.Text = "Disponibilidade para viagens";
             newCheckBox.UseVisualStyleBackColor = true;
+            DisponibilidadeViagens = newCheckBox;
 
             return newCheckBox;
         }
@@ -992,6 +1083,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 14;
             newCheckBox.Text = "Incompleto";
             newCheckBox.UseVisualStyleBackColor = true;
+            Incompleto.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -1273,21 +1365,72 @@ namespace MelhoresCandidatos
 
         private void buttonBuscarCurriculosClick(object sender, EventArgs e)
         {
-            int i;
-            int qtd = conf.getQuantidadeResultados();
+            //int i;
+            //int qtd = conf.getQuantidadeResultados();
 
+            buscarResultadoMongo();
+
+            /*
             for (i = 0; i < qtd;  i++)
             {
                 containerResultados.RowCount++;
                 containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount-1);
-            }
+            }*/
 
             panelBuscarCurriculos.Visible = false;
+            panelBuscarCurriculos2.Visible = false;
+            panelBuscarCurriculos3.Visible = false;
             panelHistoricoBuscas.Visible = false;
             panelConfiguracoes.Visible = false;
             panelAgendaEntrevistas.Visible = false;
             panelResultados.Visible = true;
+        }
+
+        private void buscarResultadoMongo()
+        {
+            string teste1 = NrVagas.Text;
+            //string teste2 = Sexo.SelectedItem.ToString();
+            //string teste3 = CNH.SelectedItem.ToString();
+            string teste4 = InicioIdade.Text;
+            string teste5 = FimIdade.Text;
+
+            //Tudo que for ComboBox tem q verificar se foi preenchido antes de dar o ToString
+            string teste6;
+            if(EstadoCivil.SelectedItem != null)
+                teste6 = EstadoCivil.SelectedItem.ToString();
+
+            string teste7 = Desempregado.Checked.ToString();
+            string teste8 = DisponibilidadeViagens.Checked.ToString();
+
+            foreach (ComboBox deficiencia in Deficiencia)
+            {
+                //string teste9 = deficiencia.SelectedItem.ToString();
+            }
+
+            //ArrayLists, assim como o de Deficiência
+            //Cidade - ComboBox
+            //Estado- ComboBox
+            //Bairro - ComboBox
+            //Cargo - TextBox
+            //NivelCargo - ComboBox
+            //Experiencia - TextBox
+            //Salario - TextBox
+            //Idioma - TextBox
+            //NivelIdioma - ComboBox
+
+            //Grau - ComboBox
+            //Incompleto - CheckBox
+            //Curso - TextBox
+            //Instituicao - TextBox
+            //InicioEscolaridade - TextBox
+            //FimEscolaridade - TextBox
+
+            //Area - ComboBox
+            //Competencias1 - ComboBox
+            //Competencias2 - ComboBox
+            //Competencias3 - ComboBox
+
         }
 
     }
