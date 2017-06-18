@@ -514,6 +514,8 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Cargo";
             newCheckBox.UseVisualStyleBackColor = true;
+            newCheckBox.Checked = true;
+            newCheckBox.Enabled = false;
             isMandatoryCargo.Add(newCheckBox);
 
             return newCheckBox;
@@ -829,6 +831,8 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Número de Vagas";
             newCheckBox.UseVisualStyleBackColor = true;
+            newCheckBox.Checked = true;
+            newCheckBox.Enabled = false;
             isMandatoryNrVagas = newCheckBox;
 
             return newCheckBox;
@@ -1027,9 +1031,9 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Click += new EventHandler(this.setFilterCompetencia);
             Competencias1.Add(newComboBox);
 
             return newComboBox;
@@ -1040,9 +1044,9 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Click += new EventHandler(this.setFilterCompetencia);
             Competencias2.Add(newComboBox);
 
             return newComboBox;
@@ -1053,9 +1057,9 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
-            newComboBox.Items.AddRange(mongo.DistinctField("competencias.valores"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Click += new EventHandler(this.setFilterCompetencia);
             Competencias3.Add(newComboBox);
 
             return newComboBox;
@@ -1066,9 +1070,9 @@ namespace MelhoresCandidatos
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(848, 294);
             newComboBox.Size = new Size(250, 33);
-            newComboBox.Items.AddRange(mongo.DistinctField("bairro"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Click += new EventHandler(this.setFilterBairro);
             Bairro.Add(newComboBox);
 
             return newComboBox;
@@ -1529,7 +1533,81 @@ namespace MelhoresCandidatos
                     cidade.Items.Clear();
                     cidade.Items.AddRange(mongo.DistinctField("cidade"));
                 }
-                    
+                i++;
+            }
+        }
+
+        private void setFilterBairro(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (ComboBox bairro in Bairro)
+            {
+                ComboBox cidade = (ComboBox)Cidade[i];
+                if (cidade.SelectedItem != null)
+                {
+                    bairro.Items.Clear();
+                    bairro.Items.AddRange(mongo.DistinctFieldWithQuery("bairro", mongo.DoQuery("{ cidade : '" + cidade.SelectedItem.ToString() + "' }")));
+                }
+                else
+                {
+                    bairro.Items.Clear();
+                    bairro.Items.AddRange(mongo.DistinctField("bairro"));
+                }
+                i++;
+            }
+        }
+
+        private void setFilterCompetencia(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (ComboBox competencia in Competencias1)
+            {
+                ComboBox area = (ComboBox)Area[i];
+                if (area.SelectedItem != null)
+                {
+                    competencia.Items.Clear();
+                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ competencias.area : '" + area.SelectedItem.ToString() + "' }")));
+                }
+                else
+                {
+                    competencia.Items.Clear();
+                    competencia.Items.AddRange(mongo.DistinctField("competencias.valores"));
+                }
+                i++;
+            }
+
+            i = 0;
+            foreach (ComboBox competencia in Competencias2)
+            {
+                ComboBox area = (ComboBox)Area[i];
+                if (area.SelectedItem != null)
+                {
+                    competencia.Items.Clear();
+                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ competencias.area : '" + area.SelectedItem.ToString() + "' }")));
+                }
+                else
+                {
+                    competencia.Items.Clear();
+                    competencia.Items.AddRange(mongo.DistinctField("competencias.valores"));
+                }
+                i++;
+            }
+
+            i = 0;
+            foreach (ComboBox competencia in Competencias3)
+            {
+                ComboBox area = (ComboBox)Area[i];
+                if (area.SelectedItem != null)
+                {
+                    competencia.Items.Clear();
+                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ competencias.area : '" + area.SelectedItem.ToString() + "' }")));
+                }
+                else
+                {
+                    competencia.Items.Clear();
+                    competencia.Items.AddRange(mongo.DistinctField("competencias.valores"));
+                }
+                i++;
             }
         }
 
