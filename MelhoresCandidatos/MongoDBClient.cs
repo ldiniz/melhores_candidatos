@@ -2,7 +2,6 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace MelhoresCandidatos
@@ -34,5 +33,19 @@ namespace MelhoresCandidatos
             return result.ToArray();
         }
 
-    }
+        public string[] DistinctFieldWithQuery(string field,QueryDocument query)
+        {
+            var result = Collection.Distinct<string>(field,query).ToList();
+            result.Sort();
+            return result.ToArray();
+        }
+
+        public QueryDocument DoQuery(string jsonQuery)
+        {
+            BsonDocument doc = BsonSerializer.Deserialize<BsonDocument>(jsonQuery);
+            QueryDocument query = new QueryDocument(doc);
+
+            return query;
+        }
+}
 }

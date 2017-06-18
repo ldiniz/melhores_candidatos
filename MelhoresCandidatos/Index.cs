@@ -12,45 +12,67 @@ namespace MelhoresCandidatos
 
         //Informações Iniciais
         TextBox NrVagas;
+        CheckBox isMandatoryNrVagas;
         ComboBox Sexo;
+        CheckBox isMandatorySexo;
         ComboBox CNH;
+        CheckBox isMandatoryCNH;
         TextBox InicioIdade;
         TextBox FimIdade;
+        CheckBox isMandatoryIdade;
         ComboBox EstadoCivil;
+        CheckBox isMandatoryEstadoCivil;
         CheckBox Desempregado;
         CheckBox DisponibilidadeViagens;
 
         //Deficiência
         ArrayList Deficiencia = new ArrayList();
+        ArrayList isMandatoryDeficiencia = new ArrayList();
 
         //Localização
         ArrayList Estado = new ArrayList();
+        ArrayList isMandatoryEstado = new ArrayList();
         ArrayList Cidade = new ArrayList();
+        ArrayList isMandatoryCidade = new ArrayList();
         ArrayList Bairro = new ArrayList();
+        ArrayList isMandatoryBairro = new ArrayList();
 
         //Experiência
         ArrayList Cargo = new ArrayList();
+        ArrayList isMandatoryCargo = new ArrayList();
         ArrayList NivelCargo = new ArrayList();
+        ArrayList isMandatoryNivelCargo = new ArrayList();
         ArrayList Experiencia = new ArrayList();
+        ArrayList isMandatoryExperiencia = new ArrayList();
         ArrayList Salario = new ArrayList();
+        ArrayList isMandatorySalario = new ArrayList();
 
         //Línguas
         ArrayList Idioma = new ArrayList();
+        ArrayList isMandatoryIdioma = new ArrayList();
         ArrayList NivelIdioma = new ArrayList();
+        ArrayList isMandatoryNivelIdioma = new ArrayList();
 
         //Escolaridade
         ArrayList Grau = new ArrayList();
+        ArrayList isMandatoryGrau = new ArrayList();
         ArrayList Incompleto = new ArrayList();
         ArrayList Curso = new ArrayList();
+        ArrayList isMandatoryCurso = new ArrayList();
         ArrayList Instituicao = new ArrayList();
+        ArrayList isMandatoryInstituicao = new ArrayList();
         ArrayList InicioEscolaridade = new ArrayList();
+        ArrayList isMandatoryInicioEscolaridade = new ArrayList();
         ArrayList FimEscolaridade = new ArrayList();
+        ArrayList isMandatoryFimEscolaridade = new ArrayList();
 
         //Competências
         ArrayList Area = new ArrayList();
+        ArrayList isMandatoryArea = new ArrayList();
         ArrayList Competencias1 = new ArrayList();
         ArrayList Competencias2 = new ArrayList();
         ArrayList Competencias3 = new ArrayList();
+        ArrayList isMandatoryCompetencia = new ArrayList();
 
         public Index()
         {
@@ -58,6 +80,17 @@ namespace MelhoresCandidatos
             InitializeComponent();
             conf = new Configuracoes();
         }
+
+        private PictureBox getImage()
+        {
+            PictureBox pb = new PictureBox();
+            pb.ImageLocation = "../../image/image.png";
+            pb.SizeMode = PictureBoxSizeMode.AutoSize;
+            pb.Location = new Point(30, 40);
+
+            return pb;
+        }
+        
 
         // 
         // Buttons
@@ -145,13 +178,13 @@ namespace MelhoresCandidatos
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
             newButton.FlatStyle = FlatStyle.Flat;
-            newButton.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            newButton.ForeColor = SystemColors.GrayText;
+            newButton.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            newButton.ForeColor = Color.Black;
             newButton.Location = new Point(3, 3);
-            newButton.Size = new Size(194, 60);
+            newButton.Size = new Size(250, 75);
             newButton.TabIndex = 0;
             newButton.Text = "Buscar Currículos";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.RoyalBlue;
             newButton.Click += new EventHandler(this.buscarCurriculosClick);
 
             return newButton;
@@ -162,13 +195,13 @@ namespace MelhoresCandidatos
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
             newButton.FlatStyle = FlatStyle.Flat;
-            newButton.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            newButton.ForeColor = SystemColors.GrayText;
+            newButton.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            newButton.ForeColor = Color.Black;
             newButton.Location = new Point(24, 69);
-            newButton.Size = new Size(194, 60);
+            newButton.Size = new Size(250, 75);
             newButton.TabIndex = 1;
             newButton.Text = "Histórico de Buscas";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.RoyalBlue;
             newButton.Click += new EventHandler(this.historicoDeBuscasClick);
 
             return newButton;
@@ -179,13 +212,13 @@ namespace MelhoresCandidatos
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
             newButton.FlatStyle = FlatStyle.Flat;
-            newButton.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            newButton.ForeColor = SystemColors.GrayText;
+            newButton.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            newButton.ForeColor = Color.Black;
             newButton.Location = new Point(3, 135);
-            newButton.Size = new Size(194, 60);
+            newButton.Size = new Size(250, 75);
             newButton.TabIndex = 2;
             newButton.Text = "Agenda de Entrevistas";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.RoyalBlue;
             newButton.Click += new EventHandler(this.agendaDeEntrevistasClick);
 
             return newButton;
@@ -196,13 +229,13 @@ namespace MelhoresCandidatos
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
             newButton.FlatStyle = FlatStyle.Flat;
-            newButton.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            newButton.ForeColor = SystemColors.GrayText;
+            newButton.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            newButton.ForeColor = Color.Black;
             newButton.Location = new Point(770, 534);
-            newButton.Size = new Size(188, 44);
+            newButton.Size = new Size(225, 60);
             newButton.TabIndex = 5;
             newButton.Text = "Configurações";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.Gray;
             newButton.Click += new EventHandler(this.configuracoesClick);
 
             return newButton;
@@ -212,26 +245,73 @@ namespace MelhoresCandidatos
         {
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
-            newButton.Location = new Point(862, 24);
-            newButton.Size = new Size(114, 37);
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(1000, 24);
+            newButton.Size = new Size(120,45);
             newButton.TabIndex = 5;
             newButton.Text = "Buscar";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.Gray;
             newButton.Click += new EventHandler(this.buttonBuscarCurriculosClick);
 
             return newButton;
         }
-        
+
         private Button buttonVoltar()
         {
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
-            newButton.Location = new Point(719, 24);
-            newButton.Size = new Size(114, 37);
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(1000, 24);
+            newButton.Size = new Size(120, 45);
             newButton.TabIndex = 18;
             newButton.Text = "Voltar";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.Gray;
             newButton.Click += new EventHandler(this.buttonVoltarClick);
+
+            return newButton;
+        }
+
+        private Button buttonVoltar1()
+        {
+            Button newButton = new Button();
+            newButton.Cursor = Cursors.Hand;
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(850, 24);
+            newButton.Size = new Size(120, 45);
+            newButton.TabIndex = 18;
+            newButton.Text = "Voltar";
+            newButton.BackColor = Color.Gray;
+            newButton.Click += new EventHandler(this.buttonVoltarClick);
+
+            return newButton;
+        }
+
+        private Button buttonVoltar2()
+        {
+            Button newButton = new Button();
+            newButton.Cursor = Cursors.Hand;
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(850, 24);
+            newButton.Size = new Size(120, 45);
+            newButton.TabIndex = 18;
+            newButton.Text = "Voltar";
+            newButton.BackColor = Color.Gray;
+            newButton.Click += new EventHandler(this.buttonVoltarClick2);
+
+            return newButton;
+        }
+
+        private Button buttonVoltar3()
+        {
+            Button newButton = new Button();
+            newButton.Cursor = Cursors.Hand;
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(850, 24);
+            newButton.Size = new Size(120, 45);
+            newButton.TabIndex = 18;
+            newButton.Text = "Voltar";
+            newButton.BackColor = Color.Gray;
+            newButton.Click += new EventHandler(this.buttonVoltarClick3);
 
             return newButton;
         }
@@ -240,11 +320,12 @@ namespace MelhoresCandidatos
         {
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
-            newButton.Location = new Point(862, 24);
-            newButton.Size = new Size(114, 37);
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(1000, 24);
+            newButton.Size = new Size(120, 45);
             newButton.TabIndex = 18;
             newButton.Text = "Próximo";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.Gray;
             newButton.Click += new EventHandler(this.buttonProximoClick);
 
             return newButton;
@@ -254,11 +335,12 @@ namespace MelhoresCandidatos
         {
             Button newButton = new Button();
             newButton.Cursor = Cursors.Hand;
-            newButton.Location = new Point(862, 24);
-            newButton.Size = new Size(114, 37);
+            newButton.FlatStyle = FlatStyle.Flat;
+            newButton.Location = new Point(1000, 24);
+            newButton.Size = new Size(120,45);
             newButton.TabIndex = 18;
             newButton.Text = "Próximo";
-            newButton.UseVisualStyleBackColor = true;
+            newButton.BackColor = Color.Gray;
             newButton.Click += new EventHandler(this.buttonProximoClick2);
 
             return newButton;
@@ -284,7 +366,7 @@ namespace MelhoresCandidatos
             TextBox textBox = new TextBox();
             textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(120, 5);
-            textBox.Size = new Size(80, 25);
+            textBox.Size = new Size(100, 25);
             textBox.TabIndex = 35;
             textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Idioma.Add(textBox);
@@ -374,7 +456,7 @@ namespace MelhoresCandidatos
         {
             TextBox newTextBox = new TextBox();
             newTextBox.Location = new Point(281, 100);
-            newTextBox.Size = new Size(128, 33);
+            newTextBox.Size = new Size(200, 33);
             newTextBox.TabIndex = 4;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             NrVagas = newTextBox;
@@ -385,7 +467,7 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxFimIdade()
         {
             TextBox newTextBox = new TextBox();
-            newTextBox.Location = new Point(289, 225);
+            newTextBox.Location = new Point(310, 225);
             newTextBox.Size = new Size(80, 33);
             newTextBox.TabIndex = 16;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -397,8 +479,8 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxInicioIdade()
         {
             TextBox newTextBox = new TextBox();
-            newTextBox.Location = new Point(180, 225);
-            newTextBox.Size = new Size(72, 33);
+            newTextBox.Location = new Point(190, 225);
+            newTextBox.Size = new Size(80, 33);
             newTextBox.TabIndex = 15;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             InicioIdade = newTextBox;
@@ -418,6 +500,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Salário";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatorySalario.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -431,6 +514,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Cargo";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryCargo.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -444,6 +528,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Área";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryArea.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -457,6 +542,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Competência";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryCompetencia.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -470,6 +556,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Grau";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryGrau.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -483,6 +570,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Curso";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryCurso.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -496,6 +584,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Instituição";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryInstituicao.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -509,6 +598,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Início";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryInicioEscolaridade.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -522,6 +612,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Conclusão";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryFimEscolaridade.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -535,6 +626,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Nível";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryNivelCargo.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -548,6 +640,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Experiência";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryExperiencia.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -561,6 +654,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Bairro";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryBairro.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -574,8 +668,21 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Cidade";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryCidade.Add(newCheckBox);
 
             return newCheckBox;
+        }
+
+        private Label getLabelCidadeSemCheckBox()
+        {
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Anchor = AnchorStyles.Left;
+            label.Location = new Point(164, 15);
+            label.Size = new Size(146, 25);
+            label.Text = "Cidade";
+
+            return label;
         }
 
         private CheckBox getLabelDeficiencia()
@@ -587,6 +694,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Deficiência";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryDeficiencia.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -600,6 +708,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Idioma";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryIdioma.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -613,6 +722,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Nível";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryNivelIdioma.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -625,6 +735,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Estado";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryEstado.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -633,7 +744,7 @@ namespace MelhoresCandidatos
         {
             Label label = new Label();
             label.AutoSize = true;
-            label.Location = new Point(258, 225);
+            label.Location = new Point(277, 225);
             label.Size = new Size(25, 25);
             label.TabIndex = 17;
             label.Text = "a";
@@ -650,6 +761,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Estado Civil";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryEstadoCivil = newCheckBox;
 
             return newCheckBox;
         }
@@ -663,19 +775,33 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Idade";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryIdade = newCheckBox;
 
             return newCheckBox;
+        }
+
+        private Label getLabelIdadeSemCheckBox()
+        {
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Anchor = AnchorStyles.Left;
+            label.Location = new Point(164, 15);
+            label.Size = new Size(146, 25);
+            label.Text = "Idade";
+
+            return label;
         }
 
         private CheckBox getLabelCNH()
         {
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new Point(420, 160);
+            newCheckBox.Location = new Point(500, 160);
             newCheckBox.Size = new Size(65, 25);
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "CNH";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryCNH = newCheckBox;
 
             return newCheckBox;
         }
@@ -689,6 +815,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Sexo";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatorySexo = newCheckBox;
 
             return newCheckBox;
         }
@@ -702,6 +829,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Número de Vagas";
             newCheckBox.UseVisualStyleBackColor = true;
+            isMandatoryNrVagas = newCheckBox;
 
             return newCheckBox;
     }
@@ -791,8 +919,8 @@ namespace MelhoresCandidatos
             Label label = new Label();
             label.AutoSize = true;
             label.Font = new Font("Verdana", 20.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            label.Location = new Point(54, 42);
-            label.Size = new Size(182, 32);
+            label.Location = new Point(24,24);
+            label.Size = new Size(312, 32);
             label.TabIndex = 0;
             label.Text = "Resultados";
 
@@ -829,8 +957,8 @@ namespace MelhoresCandidatos
         {
             Label label = new Label();
             label.AutoSize = true;
-            label.Font = new Font("Segoe Print", 26.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            label.Location = new Point(340, 61);
+            label.Font = new Font("Segoe Print", 36F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            label.Location = new Point(360, 61);
             label.Size = new Size(389, 62);
             label.TabIndex = 2;
             label.Text = "Melhores Candidatos";
@@ -859,7 +987,7 @@ namespace MelhoresCandidatos
         {
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
-            newComboBox.Size = new Size(150, 25);
+            newComboBox.Size = new Size(190, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("idiomas.nivel"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -872,7 +1000,7 @@ namespace MelhoresCandidatos
         {
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(120, 60);
-            newComboBox.Size = new Size(300, 25);
+            newComboBox.Size = new Size(400, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("formacao.grau"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -937,7 +1065,7 @@ namespace MelhoresCandidatos
         {
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(848, 294);
-            newComboBox.Size = new Size(188, 33);
+            newComboBox.Size = new Size(250, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("bairro"));
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -950,10 +1078,10 @@ namespace MelhoresCandidatos
         {
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(521, 294);
-            newComboBox.Size = new Size(188, 33);
-            newComboBox.Items.AddRange(mongo.DistinctField("cidade"));
+            newComboBox.Size = new Size(250, 33);
             newComboBox.TabIndex = 25;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newComboBox.Click += new EventHandler(this.setFilterCidade);
             Cidade.Add(newComboBox);
 
             return newComboBox;
@@ -963,7 +1091,7 @@ namespace MelhoresCandidatos
         {
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(180, 294);
-            newComboBox.Size = new Size(189, 33);
+            newComboBox.Size = new Size(250, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("estado"));
             newComboBox.TabIndex = 23;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -1007,8 +1135,8 @@ namespace MelhoresCandidatos
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Items.AddRange(mongo.DistinctField("estado_civil"));
-            newComboBox.Location = new Point(180, 300);
-            newComboBox.Size = new Size(189, 31);
+            newComboBox.Location = new Point(190, 300);
+            newComboBox.Size = new Size(220, 31);
             newComboBox.TabIndex = 12;
             EstadoCivil = newComboBox;
 
@@ -1021,8 +1149,8 @@ namespace MelhoresCandidatos
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Items.AddRange(mongo.DistinctField("cnh"));
-            newComboBox.Location = new Point(517, 160);
-            newComboBox.Size = new Size(188, 31);
+            newComboBox.Location = new Point(600, 160);
+            newComboBox.Size = new Size(200, 31);
             newComboBox.TabIndex = 8;
             CNH = newComboBox;
 
@@ -1035,8 +1163,8 @@ namespace MelhoresCandidatos
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.FormattingEnabled = true;
             newComboBox.Items.AddRange(mongo.DistinctField("sexo"));
-            newComboBox.Location = new Point(180, 160);
-            newComboBox.Size = new Size(189, 31);
+            newComboBox.Location = new Point(190, 160);
+            newComboBox.Size = new Size(220, 31);
             newComboBox.TabIndex = 7;
             Sexo = newComboBox;
 
@@ -1050,7 +1178,7 @@ namespace MelhoresCandidatos
         {
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new Point(435, 260);
+            newCheckBox.Location = new Point(500, 260);
             newCheckBox.Size = new Size(191, 29);
             newCheckBox.TabIndex = 14;
             newCheckBox.Text = "Desempregado";
@@ -1064,7 +1192,7 @@ namespace MelhoresCandidatos
         {
             CheckBox newCheckBox = new CheckBox();
             newCheckBox.AutoSize = true;
-            newCheckBox.Location = new Point(435, 300);
+            newCheckBox.Location = new Point(500, 300);
             newCheckBox.Size = new Size(335, 29);
             newCheckBox.TabIndex = 13;
             newCheckBox.Text = "Disponibilidade para viagens";
@@ -1093,17 +1221,18 @@ namespace MelhoresCandidatos
         private TableLayoutPanel addCargo()
         {
             TableLayoutPanel newCargo = new TableLayoutPanel();
-            newCargo.ColumnCount = 5;
+            newCargo.ColumnCount = 6;
             newCargo.ColumnStyles.Add(new ColumnStyle());
             newCargo.ColumnStyles.Add(new ColumnStyle());
+            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
             newCargo.ColumnStyles.Add(new ColumnStyle());
-            newCargo.ColumnStyles.Add(new ColumnStyle());
-            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 180F));
-            newCargo.Controls.Add(this.getTextBoxSalario(), 4, 1);
-            newCargo.Controls.Add(this.getLabelSalario(), 3, 1);
-            newCargo.Controls.Add(this.getComboBoxNivelCargo(), 4, 0);
+            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 220F));
+            newCargo.Controls.Add(this.getTextBoxSalario(), 5, 1);
+            newCargo.Controls.Add(this.getLabelSalario(), 4, 1);
+            newCargo.Controls.Add(this.getComboBoxNivelCargo(), 5, 0);
             newCargo.Controls.Add(this.getTextBoxExperiencia(), 2, 1);
-            newCargo.Controls.Add(this.getLabelNivelCargo(), 3, 0);
+            newCargo.Controls.Add(this.getLabelNivelCargo(), 4, 0);
             newCargo.Controls.Add(this.getLabelExperiencia(), 1, 1);
             newCargo.Controls.Add(this.getTextBoxCargo(), 2, 0);
             newCargo.Controls.Add(this.getLabelCargo(), 1, 0);
@@ -1111,7 +1240,7 @@ namespace MelhoresCandidatos
             newCargo.RowCount = 2;
             newCargo.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             newCargo.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            newCargo.Size = new Size(650, 100);
+            newCargo.Size = new Size(730, 100);
             newCargo.TabIndex = 40;
 
             return newCargo;
@@ -1121,15 +1250,15 @@ namespace MelhoresCandidatos
         {
             TableLayoutPanel newDeficiencia = new TableLayoutPanel();
             newDeficiencia.ColumnCount = 3;
-            newDeficiencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 10F));
-            newDeficiencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            newDeficiencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            newDeficiencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
+            newDeficiencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
+            newDeficiencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
             newDeficiencia.Controls.Add(this.getComboBoxDeficiencia(), 2, 0);
             newDeficiencia.Controls.Add(this.getLabelDeficiencia(), 1, 0);
             newDeficiencia.Location = new Point(20, 3);
             newDeficiencia.RowCount = 1;
             newDeficiencia.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            newDeficiencia.Size = new Size(450, 50);
+            newDeficiencia.Size = new Size(400, 50);
             newDeficiencia.TabIndex = 40;
 
             return newDeficiencia;
@@ -1140,7 +1269,7 @@ namespace MelhoresCandidatos
             TableLayoutPanel newIdioma = new TableLayoutPanel();
             newIdioma.ColumnCount = 2;
             newIdioma.ColumnStyles.Add(new ColumnStyle());
-            newIdioma.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            newIdioma.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             newIdioma.Controls.Add(this.getTextBoxIdioma(), 1, 0);
             newIdioma.Controls.Add(this.getLabelIdioma(), 0, 0);
             newIdioma.Controls.Add(this.getComboBoxNivel(), 1, 1);
@@ -1149,7 +1278,7 @@ namespace MelhoresCandidatos
             newIdioma.RowCount = 2;
             newIdioma.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             newIdioma.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            newIdioma.Size = new Size(250, 100);
+            newIdioma.Size = new Size(300, 100);
             newIdioma.TabIndex = 40;
 
             return newIdioma;
@@ -1180,7 +1309,7 @@ namespace MelhoresCandidatos
             newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 16F));
             newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 16F));
             newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 22F));
-            newEscolaridade.Size = new Size(450, 250);
+            newEscolaridade.Size = new Size(540, 250);
             newEscolaridade.TabIndex = 40;
 
             return newEscolaridade;
@@ -1214,9 +1343,9 @@ namespace MelhoresCandidatos
         {
             TableLayoutPanel newEndereco = new TableLayoutPanel();
             newEndereco.ColumnCount = 3;
-            newEndereco.ColumnStyles.Add(new ColumnStyle());
-            newEndereco.ColumnStyles.Add(new ColumnStyle());
-            newEndereco.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            newEndereco.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 30F));
+            newEndereco.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 170F));
+            newEndereco.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 300F));
             newEndereco.Controls.Add(this.getComboBoxBairro(), 2, 2);
             newEndereco.Controls.Add(this.getLabelBairro(), 1, 2);
             newEndereco.Controls.Add(this.getComboBoxCidade(), 2, 1);
@@ -1228,7 +1357,7 @@ namespace MelhoresCandidatos
             newEndereco.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             newEndereco.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             newEndereco.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            newEndereco.Size = new Size(400, 150);
+            newEndereco.Size = new Size(500, 150);
             newEndereco.TabIndex = 40;
 
             return newEndereco;
@@ -1290,6 +1419,28 @@ namespace MelhoresCandidatos
         private void buttonVoltarClick(object sender, EventArgs e)
         {
             panelBuscarCurriculos2.Visible = false;
+            panelBuscarCurriculos.Visible = false;
+            panelResultados.Visible = false;
+            panelHistoricoBuscas.Visible = false;
+            panelAgendaEntrevistas.Visible = false;
+            panelConfiguracoes.Visible = false;
+            panelBuscarCurriculos3.Visible = false;
+        }
+
+        private void buttonVoltarClick2(object sender, EventArgs e)
+        {
+            panelBuscarCurriculos2.Visible = false;
+            panelBuscarCurriculos.Visible = true;
+            panelResultados.Visible = false;
+            panelHistoricoBuscas.Visible = false;
+            panelAgendaEntrevistas.Visible = false;
+            panelConfiguracoes.Visible = false;
+            panelBuscarCurriculos3.Visible = false;
+        }
+
+        private void buttonVoltarClick3(object sender, EventArgs e)
+        {
+            panelBuscarCurriculos2.Visible = true;
             panelBuscarCurriculos.Visible = false;
             panelResultados.Visible = false;
             panelHistoricoBuscas.Visible = false;
@@ -1363,20 +1514,39 @@ namespace MelhoresCandidatos
             containerEndereco.Controls.Add(this.addEndereco(), 1, insertedRowNum); //coluna, linha
         }
 
+        private void setFilterCidade(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (ComboBox cidade in Cidade)
+            {
+                ComboBox estado = (ComboBox)Estado[i];
+                if (estado.SelectedItem != null)
+                {
+                    cidade.Items.Clear();
+                    cidade.Items.AddRange(mongo.DistinctFieldWithQuery("cidade", mongo.DoQuery("{ estado : '"+estado.SelectedItem.ToString()+"' }")));
+                }else
+                {
+                    cidade.Items.Clear();
+                    cidade.Items.AddRange(mongo.DistinctField("cidade"));
+                }
+                    
+            }
+        }
+
         private void buttonBuscarCurriculosClick(object sender, EventArgs e)
         {
-            //int i;
-            //int qtd = conf.getQuantidadeResultados();
+            int i;
+            int qtd = conf.getQuantidadeResultados();
 
             buscarResultadoMongo();
 
-            /*
+            
             for (i = 0; i < qtd;  i++)
             {
                 containerResultados.RowCount++;
                 containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount-1);
-            }*/
+            }
 
             panelBuscarCurriculos.Visible = false;
             panelBuscarCurriculos2.Visible = false;
@@ -1430,6 +1600,30 @@ namespace MelhoresCandidatos
             //Competencias1 - ComboBox
             //Competencias2 - ComboBox
             //Competencias3 - ComboBox
+
+            //Para Verificar se é obrigatório o campo
+            //isMandatoryNrVagas.Checked.ToString();
+            //isMandatorySexo.Checked.ToString();
+            //isMandatoryCNH.Checked.ToString();
+            //isMandatoryIdade.Checked.ToString();
+            //isMandatoryEstadoCivil.Checked.ToString();
+            //isMandatoryDeficiencia - ArrayList
+            //isMandatoryEstado - ArrayList
+            //isMandatoryCidade - ArrayList
+            //isMandatoryBairro - ArrayList
+            //isMandatoryCargo - ArrayList
+            //isMandatoryNivelCargo - ArrayList
+            //isMandatoryExperiencia - ArrayList
+            //isMandatorySalario - ArrayList
+            //isMandatoryIdioma - ArrayList
+            //isMandatoryNivelIdioma - ArrayList
+            //isMandatoryGrau - ArrayList
+            //isMandatoryCurso - ArrayList
+            //isMandatoryInstituicao - ArrayList
+            //isMandatoryInicioEscolaridade - ArrayList
+            //isMandatoryFimEscolaridade - ArrayList
+            //isMandatoryArea - ArrayList
+            //isMandatoryCompetencia - ArrayList
 
         }
 
