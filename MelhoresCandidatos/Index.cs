@@ -17,8 +17,7 @@ namespace MelhoresCandidatos
         CheckBox isMandatorySexo;
         ComboBox CNH;
         CheckBox isMandatoryCNH;
-        TextBox InicioIdade;
-        TextBox FimIdade;
+        ArrayList Idade = new ArrayList();
         CheckBox isMandatoryIdade;
         ComboBox EstadoCivil;
         CheckBox isMandatoryEstadoCivil;
@@ -471,7 +470,7 @@ namespace MelhoresCandidatos
             newTextBox.Size = new Size(80, 33);
             newTextBox.TabIndex = 16;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            FimIdade = newTextBox;
+            Idade.Add(newTextBox);
 
             return newTextBox;
         }
@@ -483,7 +482,7 @@ namespace MelhoresCandidatos
             newTextBox.Size = new Size(80, 33);
             newTextBox.TabIndex = 15;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            InicioIdade = newTextBox;
+            Idade.Add(newTextBox);
 
             return newTextBox;
         }
@@ -1710,8 +1709,7 @@ namespace MelhoresCandidatos
             valores.Add(NrVagas);
             valores.Add(Sexo);
             valores.Add(CNH);
-            valores.Add(InicioIdade);
-            valores.Add(FimIdade);
+            valores.Add(Idade);
             valores.Add(EstadoCivil);
             valores.Add(Deficiencia);
             valores.Add(Cidade);
