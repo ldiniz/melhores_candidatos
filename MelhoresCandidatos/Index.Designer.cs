@@ -40,6 +40,7 @@
             this.containerEndereco = new System.Windows.Forms.TableLayoutPanel();
             this.panelResultados = new System.Windows.Forms.Panel();
             this.containerResultados = new System.Windows.Forms.TableLayoutPanel();
+            this.containerHistorico = new System.Windows.Forms.TableLayoutPanel();
             this.panelConfiguracoes = new System.Windows.Forms.Panel();
             this.panelHistoricoBuscas = new System.Windows.Forms.Panel();
             this.panelAgendaEntrevistas = new System.Windows.Forms.Panel();
@@ -55,6 +56,7 @@
             this.containerEndereco.SuspendLayout();
             this.panelResultados.SuspendLayout();
             this.containerResultados.SuspendLayout();
+            this.containerHistorico.SuspendLayout();
             this.panelConfiguracoes.SuspendLayout();
             this.panelHistoricoBuscas.SuspendLayout();
             this.panelAgendaEntrevistas.SuspendLayout();
@@ -283,6 +285,7 @@
             // panelHistoricoBuscas
             // 
             this.panelHistoricoBuscas.Controls.Add(this.getLabelHistoricoBuscas());
+            this.panelHistoricoBuscas.Controls.Add(this.containerHistorico);
             this.panelHistoricoBuscas.Controls.Add(this.buttonVoltar());
             this.panelHistoricoBuscas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHistoricoBuscas.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,6 +294,27 @@
             this.panelHistoricoBuscas.Size = new System.Drawing.Size(1200, 656);
             this.panelHistoricoBuscas.TabIndex = 2;
             this.panelHistoricoBuscas.Visible = false;
+            // 
+            // containerHistorico
+            // 
+            this.containerHistorico.AutoSize = true;
+            this.containerHistorico.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.containerHistorico.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.containerHistorico.ColumnCount = 4;
+            this.containerHistorico.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.containerHistorico.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 575F));
+            this.containerHistorico.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.containerHistorico.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.containerHistorico.Controls.Add(this.getLabelData(), 0, 0);
+            this.containerHistorico.Controls.Add(this.getLabelCargoSemCheckBox(), 1, 0);
+            this.containerHistorico.Controls.Add(this.getLabelEditar(), 2, 0);
+            this.containerHistorico.Controls.Add(this.getLabelVisualizar(), 3, 0);
+            this.containerHistorico.Location = new System.Drawing.Point(30, 112);
+            this.containerHistorico.Name = "containerHistorico";
+            this.containerHistorico.RowCount = 1;
+            this.containerHistorico.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.containerHistorico.Size = new System.Drawing.Size(1125, 56);
+            this.containerHistorico.TabIndex = 1;
             // 
             // panelAgendaEntrevistas
             // 
@@ -347,6 +371,8 @@
             this.panelResultados.PerformLayout();
             this.containerResultados.ResumeLayout(false);
             this.containerResultados.PerformLayout();
+            this.containerHistorico.ResumeLayout(false);
+            this.containerHistorico.PerformLayout();
             this.panelConfiguracoes.ResumeLayout(false);
             this.panelConfiguracoes.PerformLayout();
             this.panelHistoricoBuscas.ResumeLayout(false);
@@ -371,6 +397,7 @@
         private System.Windows.Forms.TableLayoutPanel containerEndereco;
         private System.Windows.Forms.Panel panelResultados;
         private System.Windows.Forms.TableLayoutPanel containerResultados;
+        private System.Windows.Forms.TableLayoutPanel containerHistorico;
         private System.Windows.Forms.Panel panelHistoricoBuscas;
         private System.Windows.Forms.Panel panelConfiguracoes;
         private System.Windows.Forms.Panel panelAgendaEntrevistas;

@@ -866,6 +866,66 @@ namespace MelhoresCandidatos
             return label;
         }
 
+        private Label getLabelData()
+        {
+            Label label = new Label();
+            label.Anchor = AnchorStyles.Left;
+            label.AutoSize = true;
+            label.ImageAlign = ContentAlignment.MiddleLeft;
+            label.Location = new Point(4, 15);
+            label.Size = new Size(74, 25);
+            label.TabIndex = 0;
+            label.Text = "Data";
+            label.TextAlign = ContentAlignment.MiddleLeft;
+
+            return label;
+        }
+
+        private Label getLabelCargoSemCheckBox()
+        {
+            Label label = new Label();
+            label.Anchor = AnchorStyles.Left;
+            label.AutoSize = true;
+            label.ImageAlign = ContentAlignment.MiddleLeft;
+            label.Location = new Point(4, 15);
+            label.Size = new Size(74, 25);
+            label.TabIndex = 0;
+            label.Text = "Cargo";
+            label.TextAlign = ContentAlignment.MiddleLeft;
+
+            return label;
+        }
+
+        private Label getLabelEditar()
+        {
+            Label label = new Label();
+            label.Anchor = AnchorStyles.Left;
+            label.AutoSize = true;
+            label.ImageAlign = ContentAlignment.MiddleLeft;
+            label.Location = new Point(4, 15);
+            label.Size = new Size(74, 25);
+            label.TabIndex = 0;
+            label.Text = "Editar";
+            label.TextAlign = ContentAlignment.MiddleLeft;
+
+            return label;
+        }
+
+        private Label getLabelVisualizar()
+        {
+            Label label = new Label();
+            label.Anchor = AnchorStyles.Left;
+            label.AutoSize = true;
+            label.ImageAlign = ContentAlignment.MiddleLeft;
+            label.Location = new Point(4, 15);
+            label.Size = new Size(74, 25);
+            label.TabIndex = 0;
+            label.Text = "Nome";
+            label.TextAlign = ContentAlignment.MiddleLeft;
+
+            return label;
+        }
+
         private Label getLabelEscolaridade()
         {
             Label label = new Label();
@@ -1389,6 +1449,15 @@ namespace MelhoresCandidatos
 
         private void historicoDeBuscasClick(object sender, EventArgs e)
         {
+            int i;
+
+            for (i = 0; i < 3; i++)
+            {
+                containerHistorico.RowCount++;
+                containerHistorico.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                containerHistorico.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerHistorico.RowCount - 1);
+            }
+
             panelBuscarCurriculos.Visible = false;
             panelResultados.Visible = false;
             panelHistoricoBuscas.Visible = true;
