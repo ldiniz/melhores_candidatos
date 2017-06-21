@@ -1706,71 +1706,65 @@ namespace MelhoresCandidatos
 
         private void buscarResultadoMongo()
         {
-            string teste1 = NrVagas.Text;
-            //string teste2 = Sexo.SelectedItem.ToString();
-            //string teste3 = CNH.SelectedItem.ToString();
-            string teste4 = InicioIdade.Text;
-            string teste5 = FimIdade.Text;
+            ArrayList valores = new ArrayList();
+            valores.Add(NrVagas);
+            valores.Add(Sexo);
+            valores.Add(CNH);
+            valores.Add(InicioIdade);
+            valores.Add(FimIdade);
+            valores.Add(EstadoCivil);
+            valores.Add(Deficiencia);
+            valores.Add(Cidade);
+            valores.Add(Estado);
+            valores.Add(Bairro);
+            valores.Add(Cargo);
+            valores.Add(NivelCargo);
+            valores.Add(Experiencia);
+            valores.Add(Salario);
+            valores.Add(Idioma);
+            valores.Add(NivelIdioma);
+            valores.Add(Grau);
+            valores.Add(Curso);
+            valores.Add(Instituicao);
+            valores.Add(InicioEscolaridade);
+            valores.Add(FimEscolaridade);
+            valores.Add(Area);
+            valores.Add(Competencias1);
+            valores.Add(Competencias2);
+            valores.Add(Competencias3);
 
-            //Tudo que for ComboBox tem q verificar se foi preenchido antes de dar o ToString
-            string teste6;
-            if(EstadoCivil.SelectedItem != null)
-                teste6 = EstadoCivil.SelectedItem.ToString();
+            ArrayList mandatory = new ArrayList();
+            mandatory.Add(isMandatoryNrVagas);
+            mandatory.Add(isMandatorySexo);
+            mandatory.Add(isMandatoryCNH);
+            mandatory.Add(isMandatoryIdade);
+            mandatory.Add(isMandatoryEstadoCivil);
+            mandatory.Add(isMandatoryDeficiencia);
+            mandatory.Add(isMandatoryEstado);
+            mandatory.Add(isMandatoryCidade);
+            mandatory.Add(isMandatoryBairro);
+            mandatory.Add(isMandatoryCargo);
+            mandatory.Add(isMandatoryNivelCargo);
+            mandatory.Add(isMandatoryExperiencia);
+            mandatory.Add(isMandatorySalario);
+            mandatory.Add(isMandatoryIdioma);
+            mandatory.Add(isMandatoryNivelIdioma);
+            mandatory.Add(isMandatoryGrau);
+            mandatory.Add(isMandatoryCurso);
+            mandatory.Add(isMandatoryInstituicao);
+            mandatory.Add(isMandatoryInicioEscolaridade);
+            mandatory.Add(isMandatoryFimEscolaridade);
+            mandatory.Add(isMandatoryArea);
+            mandatory.Add(isMandatoryCompetencia);
 
-            string teste7 = Desempregado.Checked.ToString();
-            string teste8 = DisponibilidadeViagens.Checked.ToString();
-
-            foreach (ComboBox deficiencia in Deficiencia)
+            foreach(CheckBox m in mandatory)
             {
-                //string teste9 = deficiencia.SelectedItem.ToString();
+                if(m.Checked.ToString() == "true")
+                {
+                    //Adiciona na Query
+                }
             }
-
-            //ArrayLists, assim como o de Deficiência
-            //Cidade - ComboBox
-            //Estado- ComboBox
-            //Bairro - ComboBox
-            //Cargo - TextBox
-            //NivelCargo - ComboBox
-            //Experiencia - TextBox
-            //Salario - TextBox
-            //Idioma - TextBox
-            //NivelIdioma - ComboBox
-
-            //Grau - ComboBox
-            //Incompleto - CheckBox
-            //Curso - TextBox
-            //Instituicao - TextBox
-            //InicioEscolaridade - TextBox
-            //FimEscolaridade - TextBox
-
-            //Area - ComboBox
-            //Competencias1 - ComboBox
-            //Competencias2 - ComboBox
-            //Competencias3 - ComboBox
-
-            //Para Verificar se é obrigatório o campo
-            //isMandatoryNrVagas.Checked.ToString();
-            //isMandatorySexo.Checked.ToString();
-            //isMandatoryCNH.Checked.ToString();
-            //isMandatoryIdade.Checked.ToString();
-            //isMandatoryEstadoCivil.Checked.ToString();
-            //isMandatoryDeficiencia - ArrayList
-            //isMandatoryEstado - ArrayList
-            //isMandatoryCidade - ArrayList
-            //isMandatoryBairro - ArrayList
-            //isMandatoryCargo - ArrayList
-            //isMandatoryNivelCargo - ArrayList
-            //isMandatoryExperiencia - ArrayList
-            //isMandatorySalario - ArrayList
-            //isMandatoryIdioma - ArrayList
-            //isMandatoryNivelIdioma - ArrayList
-            //isMandatoryGrau - ArrayList
-            //isMandatoryCurso - ArrayList
-            //isMandatoryInstituicao - ArrayList
-            //isMandatoryInicioEscolaridade - ArrayList
-            //isMandatoryFimEscolaridade - ArrayList
-            //isMandatoryArea - ArrayList
-            //isMandatoryCompetencia - ArrayList
+         
 
         }
 
