@@ -8,6 +8,7 @@ namespace MelhoresCandidatos
     public partial class Index : Form
     {
         Configuracoes conf;
+        ConexaoMatlab matlab;
         public MongoDBClient mongo;
 
         //Informações Iniciais
@@ -78,6 +79,8 @@ namespace MelhoresCandidatos
             mongo = new MongoDBClient();
             InitializeComponent();
             conf = new Configuracoes();
+            matlab = new ConexaoMatlab();
+            matlab.getResultFromMatlab();
         }
 
         private PictureBox getImage()
