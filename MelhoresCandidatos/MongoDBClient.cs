@@ -2,6 +2,7 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace MelhoresCandidatos
@@ -37,6 +38,12 @@ namespace MelhoresCandidatos
         {
             var result = Collection.Distinct<string>(field,query).ToList();
             result.Sort();
+            return result.ToArray();
+        }
+
+        public ObjectId[] DistinctIDWithQuery(QueryDocument query)
+        {
+            var result = Collection.Distinct<ObjectId>("_id", query).ToList();
             return result.ToArray();
         }
 
