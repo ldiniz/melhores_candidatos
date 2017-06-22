@@ -1,6 +1,10 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MelhoresCandidatos
@@ -11,16 +15,16 @@ namespace MelhoresCandidatos
         public MongoDBClient mongo;
 
         //Informações Iniciais
-        TextBox NrVagas;
-        CheckBox isMandatoryNrVagas;
-        ComboBox Sexo;
-        CheckBox isMandatorySexo;
-        ComboBox CNH;
-        CheckBox isMandatoryCNH;
+        ArrayList NrVagas = new ArrayList();
+        ArrayList isMandatoryNrVagas = new ArrayList();
+        ArrayList Sexo = new ArrayList();
+        ArrayList isMandatorySexo = new ArrayList();
+        ArrayList CNH = new ArrayList();
+        ArrayList isMandatoryCNH = new ArrayList();
         ArrayList Idade = new ArrayList();
-        CheckBox isMandatoryIdade;
-        ComboBox EstadoCivil;
-        CheckBox isMandatoryEstadoCivil;
+        ArrayList isMandatoryIdade = new ArrayList();
+        ArrayList EstadoCivil = new ArrayList();
+        ArrayList isMandatoryEstadoCivil = new ArrayList();
         CheckBox Desempregado;
         CheckBox DisponibilidadeViagens;
 
@@ -386,19 +390,6 @@ namespace MelhoresCandidatos
             return textBox;
         }
 
-        private TextBox getTextBoxCargo()
-        {
-            TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
-            textBox.Location = new Point(143, 8);
-            textBox.Size = new Size(189, 33);
-            textBox.TabIndex = 30;
-            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            Cargo.Add(textBox);
-
-            return textBox;
-        }
-
         private TextBox getTextBoxCurso()
         {
             TextBox textBox = new TextBox();
@@ -458,7 +449,7 @@ namespace MelhoresCandidatos
             newTextBox.Size = new Size(200, 33);
             newTextBox.TabIndex = 4;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            NrVagas = newTextBox;
+            NrVagas.Add(newTextBox);
 
             return newTextBox;
         }
@@ -762,7 +753,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Estado Civil";
             newCheckBox.UseVisualStyleBackColor = true;
-            isMandatoryEstadoCivil = newCheckBox;
+            isMandatoryEstadoCivil.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -776,7 +767,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Idade";
             newCheckBox.UseVisualStyleBackColor = true;
-            isMandatoryIdade = newCheckBox;
+            isMandatoryIdade.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -802,7 +793,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "CNH";
             newCheckBox.UseVisualStyleBackColor = true;
-            isMandatoryCNH = newCheckBox;
+            isMandatoryCNH.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -816,7 +807,7 @@ namespace MelhoresCandidatos
             newCheckBox.TabIndex = 3;
             newCheckBox.Text = "Sexo";
             newCheckBox.UseVisualStyleBackColor = true;
-            isMandatorySexo = newCheckBox;
+            isMandatorySexo.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -832,7 +823,7 @@ namespace MelhoresCandidatos
             newCheckBox.UseVisualStyleBackColor = true;
             newCheckBox.Checked = true;
             newCheckBox.Enabled = false;
-            isMandatoryNrVagas = newCheckBox;
+            isMandatoryNrVagas.Add(newCheckBox);
 
             return newCheckBox;
     }
@@ -1085,6 +1076,19 @@ namespace MelhoresCandidatos
             return newComboBox;
         }
 
+        private ComboBox getComboBoxCargo()
+        {
+            ComboBox newComboBox = new ComboBox();
+            newComboBox.Location = new Point(143, 8);
+            newComboBox.Size = new Size(189, 33);
+            newComboBox.TabIndex = 30;
+            newComboBox.Items.AddRange(mongo.DistinctField("experiencia.cargo"));
+            newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            Cargo.Add(newComboBox);
+
+            return newComboBox;
+        }
+
         private ComboBox getComboBoxCompetencia1()
         {
             ComboBox newComboBox = new ComboBox();
@@ -1201,7 +1205,7 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(190, 300);
             newComboBox.Size = new Size(220, 31);
             newComboBox.TabIndex = 12;
-            EstadoCivil = newComboBox;
+            EstadoCivil.Add(newComboBox);
 
             return newComboBox;
         }
@@ -1215,7 +1219,7 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(600, 160);
             newComboBox.Size = new Size(200, 31);
             newComboBox.TabIndex = 8;
-            CNH = newComboBox;
+            CNH.Add(newComboBox);
 
             return newComboBox;
         }
@@ -1229,7 +1233,7 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(190, 160);
             newComboBox.Size = new Size(220, 31);
             newComboBox.TabIndex = 7;
-            Sexo = newComboBox;
+            Sexo.Add(newComboBox);
 
             return newComboBox;
         }
@@ -1297,7 +1301,7 @@ namespace MelhoresCandidatos
             newCargo.Controls.Add(this.getTextBoxExperiencia(), 2, 1);
             newCargo.Controls.Add(this.getLabelNivelCargo(), 4, 0);
             newCargo.Controls.Add(this.getLabelExperiencia(), 1, 1);
-            newCargo.Controls.Add(this.getTextBoxCargo(), 2, 0);
+            newCargo.Controls.Add(this.getComboBoxCargo(), 2, 0);
             newCargo.Controls.Add(this.getLabelCargo(), 1, 0);
             newCargo.Location = new Point(42, 3);
             newCargo.RowCount = 2;
@@ -1703,33 +1707,99 @@ namespace MelhoresCandidatos
             panelResultados.Visible = true;
         }
 
+        private String getTextBoxValue(TextBox box)
+        {
+            return ((TextBox)box).Text;
+        }
+
+        private String getComboBoxValue(ComboBox box)
+        {
+            if (box.SelectedItem != null)
+                return box.SelectedItem.ToString();
+            return "";
+        }
+
+        private void alertMandatoryEmpty()
+        {
+            MessageBox.Show("Por Favor, preencha todos os campos obrigatórios!", "Melhores Candidatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+        }
+
+        private void constructQueryWithTextField(Dictionary<string,ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValues = new ArrayList();
+            foreach (var v in valores[key])
+            {
+                string text = "";
+                if (v.GetType().Name.ToString() == "TextBox")
+                {
+                    text = this.getTextBoxValue((TextBox)v);
+                } else if (v.GetType().Name.ToString() == "ComboBox")
+                {
+                    text = this.getComboBoxValue((ComboBox)v);
+                }
+
+                if (m.Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValues.Add("\"" + text + "\"");
+                } else
+                {
+                    ArrayList fieldValue = new ArrayList();
+                    fieldValue.Add(text);
+                    if (text != "") fieldsDecision.Add(key, fieldValue);
+                }
+            }
+
+            string queryString = "";
+            int queryValuesLength = queryValues.ToArray().Length;
+            if (queryValuesLength > 0)
+            {
+                if (queryValues.ToArray().Length > 1)
+                {
+                    queryString += "{\"$and\": [";
+                    int i = 0;
+                    foreach (string queryValue in queryValues)
+                    {
+                        if (i > 0) queryString += ",";
+                        queryString += "{\"" + key + "\":" + queryValue + "}";
+                        i++;
+                    }
+                    queryString += "]}";
+                }
+                else
+                {
+                    queryString += "\"" + key + "\":" + queryValues[0];
+                }
+                query.Add(queryString);
+            }
+        }
+
         private void buscarResultadoMongo()
         {
-            ArrayList valores = new ArrayList();
-            valores.Add(NrVagas);
-            valores.Add(Sexo);
-            valores.Add(CNH);
-            valores.Add(Idade);
-            valores.Add(EstadoCivil);
-            valores.Add(Deficiencia);
-            valores.Add(Cidade);
-            valores.Add(Estado);
-            valores.Add(Bairro);
-            valores.Add(Cargo);
-            valores.Add(NivelCargo);
-            valores.Add(Experiencia);
-            valores.Add(Salario);
-            valores.Add(Idioma);
-            valores.Add(NivelIdioma);
-            valores.Add(Grau);
-            valores.Add(Curso);
-            valores.Add(Instituicao);
-            valores.Add(InicioEscolaridade);
-            valores.Add(FimEscolaridade);
-            valores.Add(Area);
-            valores.Add(Competencias1);
-            valores.Add(Competencias2);
-            valores.Add(Competencias3);
+            Dictionary<string, ArrayList> valores = new Dictionary<string, ArrayList>();
+            valores.Add("vagas",NrVagas);
+            valores.Add("sexo",Sexo);
+            valores.Add("cnh",CNH);
+            valores.Add("idade",Idade);
+            valores.Add("estado_civil",EstadoCivil);
+            valores.Add("especificacao_deficiencia", Deficiencia);
+            valores.Add("estado", Estado);
+            valores.Add("cidade",Cidade);
+            valores.Add("bairro",Bairro);
+            valores.Add("experiencia.cargo",Cargo);
+            valores.Add("experiencia.nivel",NivelCargo);
+            valores.Add("experiencia.duracao",Experiencia);
+            valores.Add("objetivos.salario",Salario);
+            valores.Add("idiomas.lingua",Idioma);
+            valores.Add("idiomas.nivel",NivelIdioma);
+            valores.Add("formacao.grau",Grau);
+            valores.Add("formacao.curso",Curso);
+            valores.Add("formacao.inicio",InicioEscolaridade);
+            valores.Add("formacao.conclusao",FimEscolaridade);
+            valores.Add("competencias.area",Area);
+            valores.Add("competencias.valores",Competencias1);
+            valores.Add("competencias.valores2",Competencias2);
+            valores.Add("competencias.valores3",Competencias3);
 
             ArrayList mandatory = new ArrayList();
             mandatory.Add(isMandatoryNrVagas);
@@ -1749,22 +1819,75 @@ namespace MelhoresCandidatos
             mandatory.Add(isMandatoryNivelIdioma);
             mandatory.Add(isMandatoryGrau);
             mandatory.Add(isMandatoryCurso);
-            mandatory.Add(isMandatoryInstituicao);
             mandatory.Add(isMandatoryInicioEscolaridade);
             mandatory.Add(isMandatoryFimEscolaridade);
             mandatory.Add(isMandatoryArea);
             mandatory.Add(isMandatoryCompetencia);
 
-            foreach(CheckBox m in mandatory)
+            ArrayList textFields = new ArrayList();
+            textFields.Add("sexo");
+            textFields.Add("cnh");
+            textFields.Add("estado_civil");
+            textFields.Add("especificacao_deficiencia");
+            textFields.Add("estado");
+            textFields.Add("cidade");
+            textFields.Add("bairro");
+            textFields.Add("experiencia.cargo");
+            textFields.Add("experiencia.nivel");
+            textFields.Add("idiomas.lingua");
+            textFields.Add("idiomas.nivel");
+            textFields.Add("formacao.grau");
+            textFields.Add("formacao.curso");
+            textFields.Add("competencias.area");
+            textFields.Add("competencias.valores");
+            textFields.Add("competencias.valores2");
+            textFields.Add("competencias.valores3");
+
+            ArrayList intFields = new ArrayList();
+            intFields.Add("idade");
+            intFields.Add("experiencia.duracao");
+            intFields.Add("objetivos.salario");
+
+            ArrayList dateFields = new ArrayList();
+            dateFields.Add("formacao.inicio");
+            dateFields.Add("formacao.conclusao");
+
+            int idx = 0;
+            Dictionary<string, ArrayList> fieldsDecision = new Dictionary<string, ArrayList>();
+            ArrayList query = new ArrayList();
+            foreach (ArrayList arr in mandatory)
             {
-                if(m.Checked.ToString() == "true")
+                foreach (CheckBox m in arr)
                 {
-                    //Adiciona na Query
+                    string key = valores.Keys.ElementAt(idx);
+                    if (key != "vagas")
+                    {
+                        if (textFields.Contains(key))
+                        {
+                            constructQueryWithTextField(valores, key, m, query, fieldsDecision);
+                        } else if (intFields.Contains(key))
+                        {
+
+                        } else if (dateFields.Contains(key))
+                        {
+
+                        }
+                        //Debugger.Break();    
+                    }
                 }
+                idx++;
             }
-         
 
+            string queryFinal = "{" + string.Join(",", query.ToArray()) + "}";
+            ObjectId[] results = mongo.DistinctIDWithQuery(mongo.DoQuery(queryFinal));
+            if (results.Length < 1)
+            {
+                MessageBox.Show("Sua pesquisa não encontrou nenhum resultado!", "Melhores Candidatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                //Acionar script Matlab
+            }
         }
-
     }
 }
