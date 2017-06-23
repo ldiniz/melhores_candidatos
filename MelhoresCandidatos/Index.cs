@@ -11,9 +11,10 @@ namespace MelhoresCandidatos
 {
     public partial class Index : Form
     {
-        Configuracoes conf;
         ConexaoMatlab matlab;
         public MongoDBClient mongo;
+
+        TextBox ProporcaoVagas;
 
         //Informações Iniciais
         ArrayList NrVagas = new ArrayList();
@@ -63,8 +64,6 @@ namespace MelhoresCandidatos
         ArrayList Incompleto = new ArrayList();
         ArrayList Curso = new ArrayList();
         ArrayList isMandatoryCurso = new ArrayList();
-        ArrayList Instituicao = new ArrayList();
-        ArrayList isMandatoryInstituicao = new ArrayList();
         ArrayList InicioEscolaridade = new ArrayList();
         ArrayList isMandatoryInicioEscolaridade = new ArrayList();
         ArrayList FimEscolaridade = new ArrayList();
@@ -82,9 +81,7 @@ namespace MelhoresCandidatos
         {
             mongo = new MongoDBClient();
             InitializeComponent();
-            conf = new Configuracoes();
             matlab = new ConexaoMatlab();
-            matlab.getResultFromMatlab();
         }
 
         private PictureBox getImage()
@@ -95,8 +92,7 @@ namespace MelhoresCandidatos
             pb.Location = new Point(30, 40);
 
             return pb;
-        }
-        
+        }        
 
         // 
         // Buttons
@@ -357,7 +353,6 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxSalario()
         {
             TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(430, 58);
             textBox.Size = new Size(200, 33);
             textBox.TabIndex = 35;
@@ -370,9 +365,8 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxIdioma()
         {
             TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(120, 5);
-            textBox.Size = new Size(100, 25);
+            textBox.Size = new Size(300, 25);
             textBox.TabIndex = 35;
             textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Idioma.Add(textBox);
@@ -383,7 +377,6 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxExperiencia()
         {
             TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(143, 58);
             textBox.Size = new Size(189, 33);
             textBox.TabIndex = 33;
@@ -396,9 +389,8 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxCurso()
         {
             TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(143, 8);
-            textBox.Size = new Size(189, 33);
+            textBox.Size = new Size(450, 33);
             textBox.TabIndex = 30;
             textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Curso.Add(textBox);
@@ -406,25 +398,11 @@ namespace MelhoresCandidatos
             return textBox;
         }
 
-        private TextBox getTextBoxInstituicao()
-        {
-            TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
-            textBox.Location = new Point(143, 8);
-            textBox.Size = new Size(189, 33);
-            textBox.TabIndex = 30;
-            textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            Instituicao.Add(textBox);
-
-            return textBox;
-        }
-
         private TextBox getTextBoxInicio()
         {
             TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(143, 8);
-            textBox.Size = new Size(189, 33);
+            textBox.Size = new Size(450, 33);
             textBox.TabIndex = 30;
             textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             InicioEscolaridade.Add(textBox);
@@ -435,9 +413,8 @@ namespace MelhoresCandidatos
         private TextBox getTextBoxConclusao()
         {
             TextBox textBox = new TextBox();
-            textBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
             textBox.Location = new Point(143, 8);
-            textBox.Size = new Size(189, 33);
+            textBox.Size = new Size(450, 33);
             textBox.TabIndex = 30;
             textBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             FimEscolaridade.Add(textBox);
@@ -453,6 +430,19 @@ namespace MelhoresCandidatos
             newTextBox.TabIndex = 4;
             newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             NrVagas.Add(newTextBox);
+
+            return newTextBox;
+        }
+
+        private TextBox getTextBoxProporcaoVagas()
+        {
+            TextBox newTextBox = new TextBox();
+            newTextBox.Location = new Point(450, 150);
+            newTextBox.Size = new Size(200, 33);
+            newTextBox.TabIndex = 4;
+            newTextBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            newTextBox.Text = "3";
+            ProporcaoVagas = newTextBox;
 
             return newTextBox;
         }
@@ -566,20 +556,6 @@ namespace MelhoresCandidatos
             newCheckBox.Text = "Curso";
             newCheckBox.UseVisualStyleBackColor = true;
             isMandatoryCurso.Add(newCheckBox);
-
-            return newCheckBox;
-        }
-
-        private CheckBox getLabelInstituicao()
-        {
-            CheckBox newCheckBox = new CheckBox();
-            newCheckBox.AutoSize = true;
-            newCheckBox.Location = new Point(3, 12);
-            newCheckBox.Size = new Size(75, 25);
-            newCheckBox.TabIndex = 3;
-            newCheckBox.Text = "Instituição";
-            newCheckBox.UseVisualStyleBackColor = true;
-            isMandatoryInstituicao.Add(newCheckBox);
 
             return newCheckBox;
         }
@@ -889,6 +865,21 @@ namespace MelhoresCandidatos
             return label;
         }
 
+        private Label getLabelProporcaoVagas()
+        {
+            Label label = new Label();
+            label.Anchor = AnchorStyles.Left;
+            label.AutoSize = true;
+            label.ImageAlign = ContentAlignment.MiddleLeft;
+            label.Location = new Point(25, 150);
+            label.Size = new Size(150, 25);
+            label.TabIndex = 0;
+            label.Text = "Proporção de candidatos por vaga";
+            label.TextAlign = ContentAlignment.MiddleLeft;
+
+            return label;
+        }
+
         private Label getLabelEditar()
         {
             Label label = new Label();
@@ -1083,7 +1074,7 @@ namespace MelhoresCandidatos
         {
             ComboBox newComboBox = new ComboBox();
             newComboBox.Location = new Point(143, 8);
-            newComboBox.Size = new Size(189, 33);
+            newComboBox.Size = new Size(330, 33);
             newComboBox.TabIndex = 30;
             newComboBox.Items.AddRange(mongo.DistinctField("experiencia.cargo"));
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -1173,10 +1164,8 @@ namespace MelhoresCandidatos
         private ComboBox getComboBoxNivelCargo()
         {
             ComboBox newComboBox = new ComboBox();
-            newComboBox.Anchor = ((AnchorStyles)((AnchorStyles.Left | AnchorStyles.Right)));
-            newComboBox.FormattingEnabled = true;
             newComboBox.Location = new Point(430, 58);
-            newComboBox.Size = new Size(246, 33);
+            newComboBox.Size = new Size(330, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("experiencia.nivel"));
             newComboBox.TabIndex = 31;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -1294,16 +1283,16 @@ namespace MelhoresCandidatos
             newCargo.ColumnCount = 6;
             newCargo.ColumnStyles.Add(new ColumnStyle());
             newCargo.ColumnStyles.Add(new ColumnStyle());
-            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
-            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
+            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 330F));
+            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             newCargo.ColumnStyles.Add(new ColumnStyle());
-            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 220F));
+            newCargo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
             newCargo.Controls.Add(this.getTextBoxSalario(), 5, 1);
             newCargo.Controls.Add(this.getLabelSalario(), 4, 1);
-            newCargo.Controls.Add(this.getComboBoxNivelCargo(), 5, 0);
-            newCargo.Controls.Add(this.getTextBoxExperiencia(), 2, 1);
-            newCargo.Controls.Add(this.getLabelNivelCargo(), 4, 0);
-            newCargo.Controls.Add(this.getLabelExperiencia(), 1, 1);
+            newCargo.Controls.Add(this.getComboBoxNivelCargo(), 2, 1);
+            newCargo.Controls.Add(this.getTextBoxExperiencia(), 5, 0);
+            newCargo.Controls.Add(this.getLabelNivelCargo(), 1, 1);
+            newCargo.Controls.Add(this.getLabelExperiencia(), 4, 0);
             newCargo.Controls.Add(this.getComboBoxCargo(), 2, 0);
             newCargo.Controls.Add(this.getLabelCargo(), 1, 0);
             newCargo.Location = new Point(42, 3);
@@ -1365,20 +1354,17 @@ namespace MelhoresCandidatos
             newEscolaridade.Controls.Add(this.checkBoxIncompleto(), 1, 1);
             newEscolaridade.Controls.Add(this.getLabelCurso(), 0, 2);
             newEscolaridade.Controls.Add(this.getTextBoxCurso(), 1, 2);
-            newEscolaridade.Controls.Add(this.getLabelInstituicao(), 0, 3);
-            newEscolaridade.Controls.Add(this.getTextBoxInstituicao(), 1, 3);
-            newEscolaridade.Controls.Add(this.getLabelInicio(), 0, 4);
-            newEscolaridade.Controls.Add(this.getTextBoxInicio(), 1, 4);
-            newEscolaridade.Controls.Add(this.getLabelConclusao(), 0, 5);
-            newEscolaridade.Controls.Add(this.getTextBoxConclusao(), 1, 5);
+            newEscolaridade.Controls.Add(this.getLabelInicio(), 0, 3);
+            newEscolaridade.Controls.Add(this.getTextBoxInicio(), 1, 3);
+            newEscolaridade.Controls.Add(this.getLabelConclusao(), 0, 4);
+            newEscolaridade.Controls.Add(this.getTextBoxConclusao(), 1, 4);
             newEscolaridade.Location = new Point(10, 3);
-            newEscolaridade.RowCount = 6;
-            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 16F));
-            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 14F));
-            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 16F));
-            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 16F));
-            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 16F));
-            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 22F));
+            newEscolaridade.RowCount = 5;
+            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            newEscolaridade.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             newEscolaridade.Size = new Size(540, 250);
             newEscolaridade.TabIndex = 40;
 
@@ -1688,26 +1674,36 @@ namespace MelhoresCandidatos
 
         private void buttonBuscarCurriculosClick(object sender, EventArgs e)
         {
-            int i;
-            int qtd = conf.getQuantidadeResultados();
+            string NroVagas = ((TextBox)this.NrVagas[0]).Text;
 
-            buscarResultadoMongo();
-
-            
-            for (i = 0; i < qtd;  i++)
+            if(NroVagas != "")
             {
-                containerResultados.RowCount++;
-                containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-                containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount-1);
-            }
+                int i;
+                int qtd = this.getQuantidadeCurriculos();
 
-            panelBuscarCurriculos.Visible = false;
-            panelBuscarCurriculos2.Visible = false;
-            panelBuscarCurriculos3.Visible = false;
-            panelHistoricoBuscas.Visible = false;
-            panelConfiguracoes.Visible = false;
-            panelAgendaEntrevistas.Visible = false;
-            panelResultados.Visible = true;
+                buscarResultadoMongo();
+
+
+                for (i = 0; i < qtd; i++)
+                {
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                }
+
+                panelBuscarCurriculos.Visible = false;
+                panelBuscarCurriculos2.Visible = false;
+                panelBuscarCurriculos3.Visible = false;
+                panelHistoricoBuscas.Visible = false;
+                panelConfiguracoes.Visible = false;
+                panelAgendaEntrevistas.Visible = false;
+                panelResultados.Visible = true;
+
+            }
+            else
+            {
+                alertMandatoryEmpty();
+            }
         }
 
         private String getTextBoxValue(TextBox box)
@@ -1775,6 +1771,17 @@ namespace MelhoresCandidatos
                 }
                 query.Add(queryString);
             }
+        }
+
+        private int getQuantidadeCurriculos()
+        {
+            int vagas;
+            int proporcao;
+
+            vagas = Convert.ToInt32(((TextBox)this.NrVagas[0]).Text);
+            proporcao = Convert.ToInt32(ProporcaoVagas.Text);
+
+            return vagas*proporcao;
         }
 
         private void buscarResultadoMongo()
@@ -1889,7 +1896,9 @@ namespace MelhoresCandidatos
             }
             else
             {
-                //Acionar script Matlab
+                //Acionar script Matlab, passando como parametros ids e nomes dos campos nao obrigatorios com valores
+                //matlab.getResultFromMatlab();
+                //quantidade de curriculos: this.getQuantidadeCurriculos();
             }
         }
     }

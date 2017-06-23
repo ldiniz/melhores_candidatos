@@ -71,7 +71,6 @@
     <Compile Include="Curriculos.cs" />
     <Compile Include="ICurriculos.cs" />
     <Compile Include="MongoDBClient.cs" />
-    <Compile Include="Configuracoes.cs" />
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>

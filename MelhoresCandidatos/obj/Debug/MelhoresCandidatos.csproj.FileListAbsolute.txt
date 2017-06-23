@@ -25,6 +25,8 @@ C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_
 C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.exe
 C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.pdb
 C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csprojResolveAssemblyReference.cache
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\Interop.MLApp.dll
+C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csproj.ResolveComReference.cache
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\bin\Debug\MelhoresCandidatos.exe.config
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\bin\Debug\MelhoresCandidatos.exe
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\bin\Debug\MelhoresCandidatos.pdb
@@ -45,5 +47,3 @@ C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidato
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csproj.GenerateResource.Cache
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.exe
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.pdb
-C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\Interop.MLApp.dll
-C:\Users\Thais\OneDrive\UFMG\9° Semestre\Lab Multidisciplinar\projeto\melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csproj.ResolveComReference.cache

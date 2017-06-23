@@ -275,6 +275,8 @@
             // 
             this.panelConfiguracoes.Controls.Add(this.getLabelConfig());
             this.panelConfiguracoes.Controls.Add(this.buttonVoltar());
+            this.panelConfiguracoes.Controls.Add(this.getLabelProporcaoVagas());
+            this.panelConfiguracoes.Controls.Add(this.getTextBoxProporcaoVagas());
             this.panelConfiguracoes.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelConfiguracoes.Location = new System.Drawing.Point(0, 0);
             this.panelConfiguracoes.Name = "panelConfiguracoes";
