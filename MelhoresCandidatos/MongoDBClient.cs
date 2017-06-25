@@ -2,7 +2,6 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace MelhoresCandidatos
@@ -18,6 +17,13 @@ namespace MelhoresCandidatos
             MongoDatabase Database = server.GetDatabase("melhores_candidatos");
             Collection = Database.GetCollection<Curriculos>("curriculos");
 
+        }
+
+        public Curriculos GetCurriculoById(string id)
+        {
+            Curriculos curriculo = Collection.FindOneByIdAs<Curriculos>(ObjectId.Parse(id));
+
+            return curriculo;
         }
 
         public List<Curriculos> GetQuery(string jsonQuery)

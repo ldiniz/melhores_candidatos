@@ -47,3 +47,4 @@ C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidato
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.csproj.GenerateResource.Cache
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.exe
 C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.pdb
+C:\Users\Letícia\Documents\UFMG\Projeto Multidisciplinar\src_melhores_candidatos\MelhoresCandidatos\obj\Debug\MelhoresCandidatos.PaginaCurriculo.resources

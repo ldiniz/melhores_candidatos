@@ -77,10 +77,19 @@
     <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaginaCurriculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaginaCurriculo.Designer.cs">
+      <DependentUpon>PaginaCurriculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaginaCurriculo.resx">
+      <DependentUpon>PaginaCurriculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
