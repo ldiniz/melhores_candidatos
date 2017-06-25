@@ -249,21 +249,21 @@
             this.containerResultados.AutoSize = true;
             this.containerResultados.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.containerResultados.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.containerResultados.ColumnCount = 7;
-            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
-            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.containerResultados.ColumnCount = 6;
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.containerResultados.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.containerResultados.Controls.Add(this.getLabelNome(), 0, 0);
+            //
+            this.containerResultados.Controls.Add(this.getLabelCandidato(), 0, 0);
             this.containerResultados.Controls.Add(this.getLabelIdadeSemCheckBox(), 1, 0);
-            this.containerResultados.Controls.Add(this.getLabelEscolaridade(), 2, 0);
+            this.containerResultados.Controls.Add(this.getLabelDesempregado(), 2, 0);
             this.containerResultados.Controls.Add(this.getLabelPretensao(), 3, 0);
             this.containerResultados.Controls.Add(this.getLabelCidadeSemCheckBox(), 4, 0);
             this.containerResultados.Controls.Add(this.getLabelCurriculo(), 5, 0);
-            this.containerResultados.Controls.Add(this.getLabelEntrevista(), 6, 0);
+            //
             this.containerResultados.Location = new System.Drawing.Point(30, 112);
             this.containerResultados.Name = "containerResultados";
             this.containerResultados.RowCount = 1;

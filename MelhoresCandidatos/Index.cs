@@ -656,6 +656,23 @@ namespace MelhoresCandidatos
             return label;
         }
 
+        private Label getLabelLinkVisualizar()
+        {
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Anchor = AnchorStyles.Left;
+            label.Text = "Visualizar";
+            label.Click += new EventHandler(this.showCurriculo);
+            label.Cursor = Cursors.Hand;
+            label.Font = new Font("Verdana", 12F, FontStyle.Underline, GraphicsUnit.Point, ((byte)(0)));
+            label.ForeColor = Color.Gray;
+            label.TextAlign = ContentAlignment.MiddleLeft;
+            label.ImageAlign = ContentAlignment.MiddleLeft;
+            label.Location = new Point(4, 15);
+
+            return label;
+        }
+
         private CheckBox getLabelDeficiencia()
         {
             CheckBox newCheckBox = new CheckBox();
@@ -820,7 +837,7 @@ namespace MelhoresCandidatos
             return label;
         }
 
-        private Label getLabelNome()
+        private Label getLabelCandidato()
         {
             Label label = new Label();
             label.Anchor = AnchorStyles.Left;
@@ -829,7 +846,7 @@ namespace MelhoresCandidatos
             label.Location = new Point(4, 15);
             label.Size = new Size(74, 25);
             label.TabIndex = 0;
-            label.Text = "Nome";
+            label.Text = "Candidato";
             label.TextAlign = ContentAlignment.MiddleLeft;
 
             return label;
@@ -910,7 +927,7 @@ namespace MelhoresCandidatos
             return label;
         }
 
-        private Label getLabelEscolaridade()
+        private Label getLabelDesempregado()
         {
             Label label = new Label();
             label.Anchor = AnchorStyles.Left;
@@ -918,7 +935,7 @@ namespace MelhoresCandidatos
             label.Location = new Point(164, 15);
             label.Size = new Size(146, 25);
             label.TabIndex = 2;
-            label.Text = "Escolaridade";
+            label.Text = "Desempregado";
 
             return label;
         }
@@ -1734,6 +1751,7 @@ namespace MelhoresCandidatos
                     containerResultados.RowCount++;
                     containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
                 }
 
                 panelBuscarCurriculos.Visible = false;
@@ -2062,6 +2080,12 @@ namespace MelhoresCandidatos
                 //matlab.getResultFromMatlab();
                 //quantidade de curriculos: this.getQuantidadeCurriculos();
             }
+        }
+
+        private void showCurriculo(object sender, EventArgs e)
+        {
+            PaginaCurriculo curriculo = new PaginaCurriculo();
+            curriculo.Show();
         }
     }
 }
