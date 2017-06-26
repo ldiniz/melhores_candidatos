@@ -1509,7 +1509,13 @@ namespace MelhoresCandidatos
             {
                 containerHistorico.RowCount++;
                 containerHistorico.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-                containerHistorico.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerHistorico.RowCount - 1);
+                containerHistorico.Controls.Add(new Label() { Text = "Candidato " + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerHistorico.RowCount - 1);
+                containerHistorico.Controls.Add(new Label() { Text = "23", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerHistorico.RowCount - 1);
+                containerHistorico.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerHistorico.RowCount - 1);
+                containerHistorico.Controls.Add(new Label() { Text = "1000 - 2000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerHistorico.RowCount - 1);
+                containerHistorico.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerHistorico.RowCount - 1);
+                containerHistorico.Controls.Add(new Label() { Text = "Vila Isolina Mazzei", Anchor = AnchorStyles.Left, AutoSize = true }, 5, containerHistorico.RowCount - 1);
+
             }
 
             panelBuscarCurriculos.Visible = false;
@@ -1706,7 +1712,7 @@ namespace MelhoresCandidatos
                 if (area.SelectedItem != null)
                 {
                     competencia.Items.Clear();
-                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ competencias.area : '" + area.SelectedItem.ToString() + "' }")));
+                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ \"competencias.area\" : '" + area.SelectedItem.ToString() + "' }")));
                 }
                 else
                 {
@@ -1723,7 +1729,7 @@ namespace MelhoresCandidatos
                 if (area.SelectedItem != null)
                 {
                     competencia.Items.Clear();
-                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ competencias.area : '" + area.SelectedItem.ToString() + "' }")));
+                    competencia.Items.AddRange(mongo.DistinctFieldWithQuery("competencias.valores", mongo.DoQuery("{ \"competencias.area\" : '" + area.SelectedItem.ToString() + "' }")));
                 }
                 else
                 {
@@ -1743,16 +1749,97 @@ namespace MelhoresCandidatos
                 int i;
                 int qtd = this.getQuantidadeCurriculos();
 
-                buscarResultadoMongo();
+                //buscarResultadoMongo();
 
 
-                for (i = 0; i < qtd; i++)
-                {
+                //for (i = 0; i < qtd; i++)
+                //{
+                    //containerResultados.RowCount++;
+                    //containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    //containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    //containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
                     containerResultados.RowCount++;
                     containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-                    containerResultados.Controls.Add(new Label() { Text = "Teste" + i, Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 1", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "23", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1000 - 2000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
                     containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
-                }
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 2", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "30", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "3832 - 9749", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 3", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "23", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "False", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1500 - 2000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 4", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "23", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1000 - 2000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 5", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "24", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1400 - 2000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 6", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "24", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "False", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1200 - 3500", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 7", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "36", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1000 - 10000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 8", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "29", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "True", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1000 - 2000", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+
+                    containerResultados.RowCount++;
+                    containerResultados.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    containerResultados.Controls.Add(new Label() { Text = "Candidato 9", Anchor = AnchorStyles.Left, AutoSize = true }, 0, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "24", Anchor = AnchorStyles.Left, AutoSize = true }, 1, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "False", Anchor = AnchorStyles.Left, AutoSize = true }, 2, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "1000 - 2500", Anchor = AnchorStyles.Left, AutoSize = true }, 3, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(new Label() { Text = "Sao Paulo", Anchor = AnchorStyles.Left, AutoSize = true }, 4, containerResultados.RowCount - 1);
+                    containerResultados.Controls.Add(this.getLabelLinkVisualizar(), 5, containerResultados.RowCount - 1);
+                //}
 
                 panelBuscarCurriculos.Visible = false;
                 panelBuscarCurriculos2.Visible = false;
@@ -1972,6 +2059,12 @@ namespace MelhoresCandidatos
             valores.Add("estado", Estado);
             valores.Add("cidade",Cidade);
             valores.Add("bairro",Bairro);
+            ArrayList list = new ArrayList();
+            list.Add(Desempregado);
+            valores.Add("desempregado", list);
+            list = new ArrayList();
+            list.Add(DisponibilidadeViagens);
+            valores.Add("disponibilidade_viagem", list);
             valores.Add("experiencia.cargo",Cargo);
             valores.Add("experiencia.nivel",NivelCargo);
             valores.Add("experiencia.duracao",Experiencia);
