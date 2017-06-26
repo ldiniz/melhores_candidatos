@@ -85,8 +85,8 @@
             this.panelBuscarCurriculos.Controls.Add(this.containerDeficiencia);
             this.panelBuscarCurriculos.Controls.Add(this.buttonVoltar1());
             this.panelBuscarCurriculos.Controls.Add(this.getLabelA());
-            this.panelBuscarCurriculos.Controls.Add(this.getTextBoxFimIdade());
             this.panelBuscarCurriculos.Controls.Add(this.getTextBoxInicioIdade());
+            this.panelBuscarCurriculos.Controls.Add(this.getTextBoxFimIdade());
             this.panelBuscarCurriculos.Controls.Add(this.checkBoxDesempregado());
             this.panelBuscarCurriculos.Controls.Add(this.checkBoxDisponibilidadeViagem());
             this.panelBuscarCurriculos.Controls.Add(this.getComboBoxEstadoCivil());

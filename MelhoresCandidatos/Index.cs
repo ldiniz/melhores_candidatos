@@ -1054,6 +1054,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(190, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("idiomas.nivel"));
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.TabIndex = 26;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             NivelIdioma.Add(newComboBox);
@@ -1068,6 +1071,9 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(400, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("formacao.grau"));
             newComboBox.TabIndex = 26;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Grau.Add(newComboBox);
 
@@ -1081,6 +1087,9 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(300, 25);
             newComboBox.Items.AddRange(mongo.DistinctField("competencias.area"));
             newComboBox.TabIndex = 26;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Area.Add(newComboBox);
 
@@ -1093,6 +1102,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(143, 8);
             newComboBox.Size = new Size(330, 33);
             newComboBox.TabIndex = 30;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Items.AddRange(mongo.DistinctField("experiencia.cargo"));
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Cargo.Add(newComboBox);
@@ -1106,6 +1118,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
             newComboBox.TabIndex = 26;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.Click += new EventHandler(this.setFilterCompetencia);
             Competencias1.Add(newComboBox);
@@ -1119,6 +1134,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
             newComboBox.TabIndex = 26;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.Click += new EventHandler(this.setFilterCompetencia);
             Competencias2.Add(newComboBox);
@@ -1132,6 +1150,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(120, 60);
             newComboBox.Size = new Size(300, 25);
             newComboBox.TabIndex = 26;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.Click += new EventHandler(this.setFilterCompetencia);
             Competencias3.Add(newComboBox);
@@ -1145,6 +1166,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(848, 294);
             newComboBox.Size = new Size(250, 33);
             newComboBox.TabIndex = 26;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.Click += new EventHandler(this.setFilterBairro);
             Bairro.Add(newComboBox);
@@ -1158,6 +1182,9 @@ namespace MelhoresCandidatos
             newComboBox.Location = new Point(521, 294);
             newComboBox.Size = new Size(250, 33);
             newComboBox.TabIndex = 25;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             newComboBox.Click += new EventHandler(this.setFilterCidade);
             Cidade.Add(newComboBox);
@@ -1172,6 +1199,9 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(250, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("estado"));
             newComboBox.TabIndex = 23;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             Estado.Add(newComboBox);
 
@@ -1185,6 +1215,9 @@ namespace MelhoresCandidatos
             newComboBox.Size = new Size(330, 33);
             newComboBox.Items.AddRange(mongo.DistinctField("experiencia.nivel"));
             newComboBox.TabIndex = 31;
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Font = new Font("Verdana", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             NivelCargo.Add(newComboBox);
 
@@ -1198,6 +1231,9 @@ namespace MelhoresCandidatos
             newComboBox.FormattingEnabled = true;
             newComboBox.Location = new Point(180, 254);
             newComboBox.Size = new Size(189, 31);
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.Items.AddRange(mongo.DistinctField("especificacao_deficiencia"));
             newComboBox.TabIndex = 20;
             Deficiencia.Add(newComboBox);
@@ -1213,6 +1249,9 @@ namespace MelhoresCandidatos
             newComboBox.Items.AddRange(mongo.DistinctField("estado_civil"));
             newComboBox.Location = new Point(190, 300);
             newComboBox.Size = new Size(220, 31);
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.TabIndex = 12;
             EstadoCivil.Add(newComboBox);
 
@@ -1227,6 +1266,9 @@ namespace MelhoresCandidatos
             newComboBox.Items.AddRange(mongo.DistinctField("cnh"));
             newComboBox.Location = new Point(600, 160);
             newComboBox.Size = new Size(200, 31);
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.TabIndex = 8;
             CNH.Add(newComboBox);
 
@@ -1241,6 +1283,9 @@ namespace MelhoresCandidatos
             newComboBox.Items.AddRange(mongo.DistinctField("sexo"));
             newComboBox.Location = new Point(190, 160);
             newComboBox.Size = new Size(220, 31);
+            newComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            newComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            newComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             newComboBox.TabIndex = 7;
             Sexo.Add(newComboBox);
 
@@ -1746,14 +1791,7 @@ namespace MelhoresCandidatos
             ArrayList queryValues = new ArrayList();
             foreach (var v in valores[key])
             {
-                string text = "";
-                if (v.GetType().Name.ToString() == "TextBox")
-                {
-                    text = this.getTextBoxValue((TextBox)v);
-                } else if (v.GetType().Name.ToString() == "ComboBox")
-                {
-                    text = this.getComboBoxValue((ComboBox)v);
-                }
+                string text = getTextField(v);
 
                 if (m.Checked == true)
                 {
@@ -1791,6 +1829,126 @@ namespace MelhoresCandidatos
             }
         }
 
+        private void constructQueryWithIdadeField(Dictionary<string, ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValues = new ArrayList();
+            foreach (var v in valores[key])
+            {
+                int number = getIntField(v);
+
+                if (m.Checked == true)
+                {
+                    if (number < 0) this.alertMandatoryEmpty();
+                    queryValues.Add(number);
+                }
+                else
+                {
+                    ArrayList fieldValue = new ArrayList();
+                    fieldValue.Add(number);
+                    if (number > -1) fieldsDecision.Add(key, fieldValue);
+                }
+            }
+
+            string queryString = "";
+            int queryValuesLength = queryValues.ToArray().Length;
+            if (queryValuesLength > 0)
+            {
+                queryString += "\"" + key + "\": {\"$gte\": " + queryValues[0] + ", \"$lte\": " + queryValues[1] + "}";
+                query.Add(queryString);
+            }
+        }
+
+        private void constructQueryWithSalarioField(Dictionary<string, ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValues = new ArrayList();
+            foreach (var v in valores[key])
+            {
+                int number = getIntField(v);
+
+                if (m.Checked == true)
+                {
+                    if (number < 0) this.alertMandatoryEmpty();
+                    queryValues.Add(number);
+                }
+                else
+                {
+                    ArrayList fieldValue = new ArrayList();
+                    fieldValue.Add(number);
+                    if (number < 0) fieldsDecision.Add(key, fieldValue);
+                }
+            }
+
+            string queryString = "";
+            int queryValuesLength = queryValues.ToArray().Length;
+            if (queryValuesLength > 0)
+            {
+                queryString += "\"" + key + "\": {\"$lte\": " + queryValues[0] + "}}";
+                query.Add(queryString);
+            }
+        }
+
+        private void constructQueryWithExperienciaField(Dictionary<string, ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValues = new ArrayList();
+            foreach (var v in valores[key])
+            {
+                int number = getIntField(v);
+
+                if (m.Checked == true)
+                {
+                    if (number < 0) this.alertMandatoryEmpty();
+                    queryValues.Add(number);
+                }
+                else
+                {
+                    ArrayList fieldValue = new ArrayList();
+                    fieldValue.Add(number);
+                    if (number < 0) fieldsDecision.Add(key, fieldValue);
+                }
+            }
+
+            string queryString = "";
+            int queryValuesLength = queryValues.ToArray().Length;
+            if (queryValuesLength > 0)
+            {
+                queryString += "\"" + key + "\": {\"$gte\": " + queryValues[0] + "}}";
+                query.Add(queryString);
+            }
+        }
+
+        private string getTextField(object v)
+        {
+            string text = "";
+            if (v.GetType().Name.ToString() == "TextBox")
+            {
+                text = this.getTextBoxValue((TextBox)v);
+            }
+            else if (v.GetType().Name.ToString() == "ComboBox")
+            {
+                text = this.getComboBoxValue((ComboBox)v);
+            }
+
+            return text;
+        }
+
+        private int getIntField(object v)
+        {
+            int number = -1;
+            string text = "";
+            if (v.GetType().Name.ToString() == "TextBox")
+            {
+                text = this.getTextBoxValue((TextBox)v);
+            }
+            else if (v.GetType().Name.ToString() == "ComboBox")
+            {
+                text = this.getComboBoxValue((ComboBox)v);
+            }
+            if (text != "")
+                number = Convert.ToInt32(text);
+
+            return number;
+        }
+
         private int getQuantidadeCurriculos()
         {
             int vagas;
@@ -1817,7 +1975,7 @@ namespace MelhoresCandidatos
             valores.Add("experiencia.cargo",Cargo);
             valores.Add("experiencia.nivel",NivelCargo);
             valores.Add("experiencia.duracao",Experiencia);
-            valores.Add("objetivos.salario",Salario);
+            valores.Add("objetivos.salario.min",Salario);
             valores.Add("idiomas.lingua",Idioma);
             valores.Add("idiomas.nivel",NivelIdioma);
             valores.Add("formacao.grau",Grau);
@@ -1874,7 +2032,7 @@ namespace MelhoresCandidatos
             ArrayList intFields = new ArrayList();
             intFields.Add("idade");
             intFields.Add("experiencia.duracao");
-            intFields.Add("objetivos.salario");
+            intFields.Add("objetivos.salario.min");
 
             ArrayList dateFields = new ArrayList();
             dateFields.Add("formacao.inicio");
@@ -1895,12 +2053,16 @@ namespace MelhoresCandidatos
                             constructQueryWithTextField(valores, key, m, query, fieldsDecision);
                         } else if (intFields.Contains(key))
                         {
-
+                            if (key == "objetivos.salario.min")
+                                constructQueryWithSalarioField(valores, key, m, query, fieldsDecision);
+                            else if (key == "idade")
+                                constructQueryWithIdadeField(valores, key, m, query, fieldsDecision);
+                            else
+                                constructQueryWithExperienciaField(valores, key, m, query, fieldsDecision);
                         } else if (dateFields.Contains(key))
                         {
 
                         }
-                        //Debugger.Break();    
                     }
                 }
                 idx++;
