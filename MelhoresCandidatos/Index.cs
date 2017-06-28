@@ -1749,7 +1749,7 @@ namespace MelhoresCandidatos
                 int i;
                 int qtd = this.getQuantidadeCurriculos();
 
-                //buscarResultadoMongo();
+                buscarResultadoMongo();
 
 
                 //for (i = 0; i < qtd; i++)
@@ -1873,24 +1873,27 @@ namespace MelhoresCandidatos
             MessageBox.Show("Por Favor, preencha todos os campos obrigatórios!", "Melhores Candidatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
         }
 
-        private void constructQueryWithTextField(Dictionary<string,ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        private void constructQueryWithTextField(ArrayList valores, string key, ArrayList cb, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
         {
             ArrayList queryValues = new ArrayList();
-            foreach (var v in valores[key])
+            ArrayList fieldValue = new ArrayList();
+            string text = "";
+            int idx = 0;
+            foreach (var v in valores)
             {
-                string text = getTextField(v);
+                text = getTextField(v);
 
-                if (m.Checked == true)
+                if (((CheckBox)cb[idx]).Checked == true)
                 {
                     if (text == "") this.alertMandatoryEmpty();
                     queryValues.Add("\"" + text + "\"");
                 } else
                 {
-                    ArrayList fieldValue = new ArrayList();
-                    fieldValue.Add(text);
-                    if (text != "") fieldsDecision.Add(key, fieldValue);
+                    if (text != "") fieldValue.Add(text);
                 }
+                idx++;
             }
+            if (fieldValue.Count > 0) fieldsDecision.Add(key, fieldValue);
 
             string queryString = "";
             int queryValuesLength = queryValues.ToArray().Length;
@@ -1910,31 +1913,32 @@ namespace MelhoresCandidatos
                 }
                 else
                 {
-                    queryString += "\"" + key + "\":" + queryValues[0];
+                    queryString += "\"" + key + "\": " + queryValues[0];
                 }
                 query.Add(queryString);
             }
         }
 
-        private void constructQueryWithIdadeField(Dictionary<string, ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        private void constructQueryWithIdadeField(ArrayList valores, string key, ArrayList cb, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
         {
             ArrayList queryValues = new ArrayList();
-            foreach (var v in valores[key])
+            ArrayList fieldValue = new ArrayList();
+            int number = 0;
+            foreach (var v in valores)
             {
-                int number = getIntField(v);
+                number = getIntField(v);
 
-                if (m.Checked == true)
+                if (((CheckBox)cb[0]).Checked == true)
                 {
                     if (number < 0) this.alertMandatoryEmpty();
                     queryValues.Add(number);
                 }
                 else
                 {
-                    ArrayList fieldValue = new ArrayList();
-                    fieldValue.Add(number);
-                    if (number > -1) fieldsDecision.Add(key, fieldValue);
+                    if (number > -1) fieldValue.Add(number);
                 }
             }
+            if (fieldValue.Count > 0) fieldsDecision.Add(key, fieldValue);
 
             string queryString = "";
             int queryValuesLength = queryValues.ToArray().Length;
@@ -1945,25 +1949,28 @@ namespace MelhoresCandidatos
             }
         }
 
-        private void constructQueryWithSalarioField(Dictionary<string, ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        private void constructQueryWithSalarioField(ArrayList valores, string key, ArrayList cb, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
         {
             ArrayList queryValues = new ArrayList();
-            foreach (var v in valores[key])
+            ArrayList fieldValue = new ArrayList();
+            int number = 0;
+            int idx = 0;
+            foreach (var v in valores)
             {
-                int number = getIntField(v);
+                number = getIntField(v);
 
-                if (m.Checked == true)
+                if (((CheckBox)cb[idx]).Checked == true)
                 {
                     if (number < 0) this.alertMandatoryEmpty();
                     queryValues.Add(number);
                 }
                 else
                 {
-                    ArrayList fieldValue = new ArrayList();
-                    fieldValue.Add(number);
-                    if (number < 0) fieldsDecision.Add(key, fieldValue);
+                    if (number > -1) fieldValue.Add(number);
                 }
+                idx++;
             }
+            if (fieldValue.Count > 0) fieldsDecision.Add(key, fieldValue);
 
             string queryString = "";
             int queryValuesLength = queryValues.ToArray().Length;
@@ -1974,32 +1981,391 @@ namespace MelhoresCandidatos
             }
         }
 
-        private void constructQueryWithExperienciaField(Dictionary<string, ArrayList> valores, string key, CheckBox m, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        private void constructQueryWithExperienciaField(ArrayList cargos, ArrayList experiencias, ArrayList niveis, Dictionary<string, ArrayList> cb, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
         {
-            ArrayList queryValues = new ArrayList();
-            foreach (var v in valores[key])
+            ArrayList queryValuesCargos = new ArrayList();
+            ArrayList queryValuesExperiencias = new ArrayList();
+            ArrayList queryValuesNiveis = new ArrayList();
+            ArrayList fieldValueCargos = new ArrayList();
+            ArrayList fieldValueExperiencias = new ArrayList();
+            ArrayList fieldValueNiveis = new ArrayList();
+            string text = "";
+            int number = 0;
+            int idx = 0;
+            foreach (var v in cargos)
             {
-                int number = getIntField(v);
-
-                if (m.Checked == true)
+                text = getTextField(v);
+                if (((CheckBox)cb["experiencia.cargo"][idx]).Checked == true)
                 {
-                    if (number < 0) this.alertMandatoryEmpty();
-                    queryValues.Add(number);
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesCargos.Add(text);
                 }
                 else
                 {
-                    ArrayList fieldValue = new ArrayList();
-                    fieldValue.Add(number);
-                    if (number < 0) fieldsDecision.Add(key, fieldValue);
+                    if (text != "") fieldValueCargos.Add(text);
                 }
+
+                number = getIntField(experiencias[idx]);
+                if (((CheckBox)cb["experiencia.duracao"][idx]).Checked == true)
+                {
+                    if (number < 0) this.alertMandatoryEmpty();
+                    queryValuesExperiencias.Add(number);
+                }
+                else
+                {
+                    if (number > -1) fieldValueExperiencias.Add(number);
+                }
+
+                text = getTextField(niveis[idx]);
+                if (((CheckBox)cb["experiencia.nivel"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesNiveis.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueNiveis.Add(text);
+                }
+
+                idx++;
             }
+            if (fieldValueCargos.Count > 0) fieldsDecision.Add("experiencia.cargo", fieldValueCargos);
+            if (fieldValueExperiencias.Count > 0) fieldsDecision.Add("experiencia.duracao", fieldValueExperiencias);
+            if (fieldValueNiveis.Count > 0) fieldsDecision.Add("experiencia.nivel", fieldValueNiveis);
 
             string queryString = "";
-            int queryValuesLength = queryValues.ToArray().Length;
-            if (queryValuesLength > 0)
+            int queryValuesCargoLength = queryValuesCargos.ToArray().Length;
+            int queryValuesExperienciasLength = queryValuesExperiencias.ToArray().Length;
+            int queryValuesNiveisLength = queryValuesNiveis.ToArray().Length;
+            if (queryValuesCargoLength > 0 || queryValuesNiveisLength > 0)
             {
-                queryString += "\"" + key + "\": {\"$gte\": " + queryValues[0] + "}}";
-                query.Add(queryString);
+                if (queryValuesCargoLength > 1 || queryValuesExperienciasLength > 1 || queryValuesNiveisLength > 1)
+                {
+                    //suporte mais de um campo
+                }
+                else
+                {
+                    queryString += "\"experiencia\": {\"$elemMatch\": {";
+                    if (queryValuesCargos.Count > 0) queryString += "\"cargo\": \"" + queryValuesCargos[0] + "\",";
+                    if (queryValuesExperiencias.Count > 0) queryString += "\"duracao\": {\"$gte\": " + queryValuesExperiencias[0] + "},";
+                    if (queryValuesNiveis.Count > 0) queryString += "\"nivel\": \"" + queryValuesNiveis[0] + "\"";
+                    queryString += "}}";
+                    query.Add(queryString);
+                }
+            }
+        }
+
+        private void constructQueryWithCompetenciasField(ArrayList areas, ArrayList competencias1, ArrayList competencias2, ArrayList competencias3, Dictionary<string, ArrayList> cb, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValuesAreas = new ArrayList();
+            ArrayList queryValuesComp = new ArrayList();
+            ArrayList fieldValueAreas = new ArrayList();
+            ArrayList fieldValueComp = new ArrayList();
+            string text = "";
+            int number = 0;
+            int idx = 0;
+            foreach (var v in areas)
+            {
+                text = getTextField(v);
+                if (((CheckBox)cb["competencias.area"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesAreas.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueAreas.Add(text);
+                }
+
+                text = getTextField(competencias1[idx]);
+                if (((CheckBox)cb["competencias.valores"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesComp.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueComp.Add(text);
+                }
+
+                text = getTextField(competencias2[idx]);
+                if (((CheckBox)cb["competencias.valores"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesComp.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueComp.Add(text);
+                }
+
+                text = getTextField(competencias3[idx]);
+                if (((CheckBox)cb["competencias.valores"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesComp.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueComp.Add(text);
+                }
+
+                idx++;
+            }
+            if (fieldValueAreas.Count > 0) fieldsDecision.Add("competencias.area", fieldValueAreas);
+            if (fieldValueComp.Count > 0) fieldsDecision.Add("competencias.valores", fieldValueComp);
+
+            string queryString = "";
+            int queryValuesAreasLength = queryValuesAreas.ToArray().Length;
+            int queryValuesCompLength = queryValuesComp.ToArray().Length;
+            if (queryValuesAreasLength > 0 || queryValuesCompLength > 0)
+            {
+                if (queryValuesAreasLength > 1 || queryValuesCompLength > 1)
+                {
+                    //suporte mais de um campo
+                }
+                else
+                {
+                    queryString += "\"competencias\": {\"$elemMatch\": {";
+                    if (queryValuesAreas.Count > 0) queryString += "\"area\": \"" + queryValuesAreas[0] + "\",";
+                    if (queryValuesComp.Count > 0) queryString += "\"valores\": \"" + queryValuesComp[0] + "\",";
+                    queryString += "}}";
+                    query.Add(queryString);
+                }
+            }
+        }
+
+        private void constructQueryWithFormacaoField(ArrayList cursos, ArrayList graus, ArrayList inicios, ArrayList fins, Dictionary<string, ArrayList> cb, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValuesCursos = new ArrayList();
+            ArrayList queryValuesGraus = new ArrayList();
+            ArrayList queryValuesInicios = new ArrayList();
+            ArrayList queryValuesFins = new ArrayList();
+            ArrayList fieldValueCursos = new ArrayList();
+            ArrayList fieldValueGraus = new ArrayList();
+            ArrayList fieldValueInicios = new ArrayList();
+            ArrayList fieldValueFins = new ArrayList();
+            string text = "";
+            int number = 0;
+            BsonDateTime date;
+            int idx = 0;
+            foreach (var v in cursos)
+            {
+                text = getTextField(v);
+                if (((CheckBox)cb["formacao.curso"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesCursos.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueCursos.Add(text);
+                }
+
+                text = getTextField(graus[idx]);
+                if (((CheckBox)cb["formacao.grau"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesGraus.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueGraus.Add(text);
+                }
+
+                text = getTextField(inicios[idx]);
+                if (((CheckBox)cb["formacao.inicio"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesInicios.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueInicios.Add(text);
+                }
+
+                text = getTextField(fins[idx]);
+                if (((CheckBox)cb["formacao.conclusao"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesFins.Add(text);
+                }
+                else
+                {
+                    if (text != "") fieldValueFins.Add(text);
+                }
+
+                idx++;
+            }
+            if (fieldValueCursos.Count > 0) fieldsDecision.Add("formacao.curso", fieldValueCursos);
+            if (fieldValueGraus.Count > 0) fieldsDecision.Add("formacao.grau", fieldValueGraus);
+            if (fieldValueInicios.Count > 0) fieldsDecision.Add("formacao.inicio", fieldValueInicios);
+            if (fieldValueFins.Count > 0) fieldsDecision.Add("formacao.conclusao", fieldValueFins);
+
+            string queryString = "";
+            int queryValuesCursosLength = queryValuesCursos.ToArray().Length;
+            int queryValuesGrausLength = queryValuesGraus.ToArray().Length;
+            int queryValuesIniciosLength = queryValuesInicios.ToArray().Length;
+            int queryValuesFinsLength = queryValuesFins.ToArray().Length;
+            if (queryValuesCursosLength > 0 || queryValuesGrausLength > 0 || queryValuesFinsLength > 0 || queryValuesIniciosLength > 0)
+            {
+                if (queryValuesCursosLength > 1 || queryValuesGrausLength > 1 || queryValuesIniciosLength > 1 || queryValuesFinsLength > 1)
+                {
+                    //suporte mais de um campo
+                }
+                else
+                {
+                    queryString += "\"formacao\": {\"$elemMatch\": {";
+                    if (queryValuesCursos.Count > 0) queryString += "\"curso\": \"" + queryValuesCursos[0] + "\",";
+                    if (queryValuesGraus.Count > 0) queryString += "\"grau\": \"" + queryValuesGraus[0] + "\",";
+                    if (queryValuesInicios.Count > 0) query.Add("\"inicio\": {\"$gte\": " + queryValuesInicios[0] + "},");
+                    if (queryValuesFins.Count > 0) query.Add("\"conclusao\": {\"$lte\": " + queryValuesFins[0] + "},");
+                    queryString += "}}";
+                    query.Add(queryString);
+                }
+            }
+        }
+
+        private void constructQueryWithEnderecoField(ArrayList estados, ArrayList cidades, ArrayList bairros, Dictionary<string, ArrayList> mandatory, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValuesEstados = new ArrayList();
+            ArrayList queryValuesCidades = new ArrayList();
+            ArrayList queryValuesBairros = new ArrayList();
+            ArrayList fieldValueEstados = new ArrayList();
+            ArrayList fieldValueCidades = new ArrayList();
+            ArrayList fieldValueBairros = new ArrayList();
+            string text = "";
+            int idx = 0;
+            foreach (var v in estados)
+            {
+                text = getTextField(v);
+                if (((CheckBox)mandatory["estado"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesEstados.Add("\"" + text + "\"");
+                }
+                else
+                {
+                    if (text != "") fieldValueEstados.Add(text);
+                }
+
+                text = getTextField(cidades[idx]);
+                if (((CheckBox)mandatory["cidade"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesCidades.Add("\"" + text + "\"");
+                }
+                else
+                {
+                    if (text != "") fieldValueCidades.Add(text);
+                }
+
+                text = getTextField(bairros[idx]);
+                if (((CheckBox)mandatory["bairro"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesBairros.Add("\"" + text + "\"");
+                }
+                else
+                {
+                    if (text != "") fieldValueBairros.Add(text);
+                }
+                idx++;
+            }
+            if (fieldValueEstados.Count > 0) fieldsDecision.Add("estado", fieldValueEstados);
+            if (fieldValueEstados.Count > 0) fieldsDecision.Add("cidade", fieldValueCidades);
+            if (fieldValueEstados.Count > 0) fieldsDecision.Add("bairro", fieldValueBairros);
+
+            string queryString = "";
+            int queryValuesEstadosLength = queryValuesEstados.ToArray().Length;
+            int queryValuesCidadesLength = queryValuesCidades.ToArray().Length;
+            int queryValuesBairrosLength = queryValuesBairros.ToArray().Length;
+            if (queryValuesEstadosLength > 0 || queryValuesCidadesLength > 0 || queryValuesBairrosLength > 0)
+            {
+                if (queryValuesEstados.ToArray().Length > 1 || queryValuesCidades.ToArray().Length > 1 || queryValuesBairros.ToArray().Length > 1)
+                {
+                    //queryString += "{\"$or\": [";
+                    //int i = 0;
+                    //foreach (string queryValue in queryValuesEstados)
+                    //{
+                    //    if (i > 0) queryString += ",";
+                    //    queryString += "{\"estado\":" + queryValue + "}";
+                    //    i++;
+                    //}
+                    //queryString += "]}";
+                    //query.Add(queryString);
+                }
+                else
+                {
+                    if (queryValuesEstados.Count > 0) query.Add("\"estado\": " + queryValuesEstados[0]);
+                    if (queryValuesCidades.Count > 0) query.Add("\"cidade\": " + queryValuesCidades[0]);
+                    if (queryValuesBairros.Count > 0) query.Add("\"bairro\": " + queryValuesBairros[0]);
+                }
+            }
+        }
+
+        private void constructQueryWithIdiomasField(ArrayList idiomas, ArrayList niveis, Dictionary<string, ArrayList> mandatory, ArrayList query, Dictionary<string, ArrayList> fieldsDecision)
+        {
+            ArrayList queryValuesIdiomas = new ArrayList();
+            ArrayList queryValuesNiveis = new ArrayList();
+            ArrayList fieldValueIdiomas = new ArrayList();
+            ArrayList fieldValueNiveis = new ArrayList();
+            string text = "";
+            int idx = 0;
+            foreach (var v in idiomas)
+            {
+                text = getTextField(v);
+                if (((CheckBox)mandatory["idiomas.lingua"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesIdiomas.Add("\"" + text + "\"");
+                }
+                else
+                {
+                    if (text != "") fieldValueIdiomas.Add(text);
+                }
+
+                text = getTextField(niveis[idx]);
+                if (((CheckBox)mandatory["idiomas.nivel"][idx]).Checked == true)
+                {
+                    if (text == "") this.alertMandatoryEmpty();
+                    queryValuesNiveis.Add("\"" + text + "\"");
+                }
+                else
+                {
+                    if (text != "") fieldValueNiveis.Add(text);
+                }
+                idx++;
+            }
+            if (fieldValueIdiomas.Count > 0) fieldsDecision.Add("idiomas.lingua", fieldValueIdiomas);
+            if (fieldValueNiveis.Count > 0) fieldsDecision.Add("idiomas.nivel", fieldValueNiveis);
+
+            string queryString = "";
+            int queryValuesIdiomasLength = queryValuesIdiomas.ToArray().Length;
+            int queryValuesNiveisLength = queryValuesNiveis.ToArray().Length;
+            if (queryValuesIdiomasLength > 0 || queryValuesNiveisLength > 0)
+            {
+                if (queryValuesIdiomasLength > 1 || queryValuesNiveis.ToArray().Length > 1)
+                {
+                    //queryString += "{\"$or\": [";
+                    //int i = 0;
+                    //foreach (string queryValue in queryValuesEstados)
+                    //{
+                    //    if (i > 0) queryString += ",";
+                    //    queryString += "{\"estado\":" + queryValue + "}";
+                    //    i++;
+                    //}
+                    //queryString += "]}";
+                    //query.Add(queryString);
+                }
+                else
+                {
+                    queryString += "\"idiomas\": {\"$elemMatch\": {";
+                    if (queryValuesIdiomas.Count > 0) queryString += "\"lingua\": " + queryValuesIdiomas[0] + ",";
+                    if (queryValuesNiveis.Count > 0) queryString += "\"nivel\": " + queryValuesNiveis[0] + ",";
+                    queryString += "}}";
+                    query.Add(queryString);
+                }
             }
         }
 
@@ -2049,114 +2415,115 @@ namespace MelhoresCandidatos
 
         private void buscarResultadoMongo()
         {
-            Dictionary<string, ArrayList> valores = new Dictionary<string, ArrayList>();
-            valores.Add("vagas",NrVagas);
-            valores.Add("sexo",Sexo);
-            valores.Add("cnh",CNH);
-            valores.Add("idade",Idade);
-            valores.Add("estado_civil",EstadoCivil);
-            valores.Add("especificacao_deficiencia", Deficiencia);
-            valores.Add("estado", Estado);
-            valores.Add("cidade",Cidade);
-            valores.Add("bairro",Bairro);
-            ArrayList list = new ArrayList();
-            list.Add(Desempregado);
-            valores.Add("desempregado", list);
-            list = new ArrayList();
-            list.Add(DisponibilidadeViagens);
-            valores.Add("disponibilidade_viagem", list);
-            valores.Add("experiencia.cargo",Cargo);
-            valores.Add("experiencia.nivel",NivelCargo);
-            valores.Add("experiencia.duracao",Experiencia);
-            valores.Add("objetivos.salario.min",Salario);
-            valores.Add("idiomas.lingua",Idioma);
-            valores.Add("idiomas.nivel",NivelIdioma);
-            valores.Add("formacao.grau",Grau);
-            valores.Add("formacao.curso",Curso);
-            valores.Add("formacao.inicio",InicioEscolaridade);
-            valores.Add("formacao.conclusao",FimEscolaridade);
-            valores.Add("competencias.area",Area);
-            valores.Add("competencias.valores",Competencias1);
-            valores.Add("competencias.valores2",Competencias2);
-            valores.Add("competencias.valores3",Competencias3);
+            ArrayList campos = new ArrayList();
+            campos.Add("sexo");
+            campos.Add("cnh");
+            campos.Add("idade");
+            campos.Add("estado_civil");
+            campos.Add("especificacao_deficiencia");
+            campos.Add("endereco");
+            campos.Add("desempregado");
+            campos.Add("disponibilidade_viagem");
+            campos.Add("experiencia");
+            campos.Add("objetivos.salario.min");
+            campos.Add("idiomas");
+            campos.Add("formacao");
+            campos.Add("competencias");
 
-            ArrayList mandatory = new ArrayList();
-            mandatory.Add(isMandatoryNrVagas);
-            mandatory.Add(isMandatorySexo);
-            mandatory.Add(isMandatoryCNH);
-            mandatory.Add(isMandatoryIdade);
-            mandatory.Add(isMandatoryEstadoCivil);
-            mandatory.Add(isMandatoryDeficiencia);
-            mandatory.Add(isMandatoryEstado);
-            mandatory.Add(isMandatoryCidade);
-            mandatory.Add(isMandatoryBairro);
-            mandatory.Add(isMandatoryCargo);
-            mandatory.Add(isMandatoryNivelCargo);
-            mandatory.Add(isMandatoryExperiencia);
-            mandatory.Add(isMandatorySalario);
-            mandatory.Add(isMandatoryIdioma);
-            mandatory.Add(isMandatoryNivelIdioma);
-            mandatory.Add(isMandatoryGrau);
-            mandatory.Add(isMandatoryCurso);
-            mandatory.Add(isMandatoryInicioEscolaridade);
-            mandatory.Add(isMandatoryFimEscolaridade);
-            mandatory.Add(isMandatoryArea);
-            mandatory.Add(isMandatoryCompetencia);
-
-            ArrayList textFields = new ArrayList();
-            textFields.Add("sexo");
-            textFields.Add("cnh");
-            textFields.Add("estado_civil");
-            textFields.Add("especificacao_deficiencia");
-            textFields.Add("estado");
-            textFields.Add("cidade");
-            textFields.Add("bairro");
-            textFields.Add("experiencia.cargo");
-            textFields.Add("experiencia.nivel");
-            textFields.Add("idiomas.lingua");
-            textFields.Add("idiomas.nivel");
-            textFields.Add("formacao.grau");
-            textFields.Add("formacao.curso");
-            textFields.Add("competencias.area");
-            textFields.Add("competencias.valores");
-            textFields.Add("competencias.valores2");
-            textFields.Add("competencias.valores3");
-
-            ArrayList intFields = new ArrayList();
-            intFields.Add("idade");
-            intFields.Add("experiencia.duracao");
-            intFields.Add("objetivos.salario.min");
-
-            ArrayList dateFields = new ArrayList();
-            dateFields.Add("formacao.inicio");
-            dateFields.Add("formacao.conclusao");
+            Dictionary<string, ArrayList> mandatory = new Dictionary<string, ArrayList>();
+            mandatory.Add("sexo",isMandatorySexo);
+            mandatory.Add("cnh",isMandatoryCNH);
+            mandatory.Add("idade",isMandatoryIdade);
+            mandatory.Add("estado_civil",isMandatoryEstadoCivil);
+            mandatory.Add("especificacao_deficiencia",isMandatoryDeficiencia);
+            mandatory.Add("estado",isMandatoryEstado);
+            mandatory.Add("cidade",isMandatoryCidade);
+            mandatory.Add("bairro",isMandatoryBairro);
+            CheckBox newCheckBox = new CheckBox();
+            newCheckBox.Checked = false;
+            ArrayList newArrayList = new ArrayList();
+            newArrayList.Add(newCheckBox);
+            mandatory.Add("desempregado",newArrayList);
+            mandatory.Add("disponibilidade_viagem",newArrayList);
+            mandatory.Add("experiencia.cargo",isMandatoryCargo);
+            mandatory.Add("experiencia.nivel",isMandatoryNivelCargo);
+            mandatory.Add("experiencia.duracao",isMandatoryExperiencia);
+            mandatory.Add("objetivos.salario.min",isMandatorySalario);
+            mandatory.Add("idiomas.lingua",isMandatoryIdioma);
+            mandatory.Add("idiomas.nivel",isMandatoryNivelIdioma);
+            mandatory.Add("formacao.grau",isMandatoryGrau);
+            mandatory.Add("formacao.curso",isMandatoryCurso);
+            mandatory.Add("formacao.inicio",isMandatoryInicioEscolaridade);
+            mandatory.Add("formacao.conclusao",isMandatoryFimEscolaridade);
+            mandatory.Add("competencias.area",isMandatoryArea);
+            mandatory.Add("competencias.valores",isMandatoryCompetencia);
 
             int idx = 0;
             Dictionary<string, ArrayList> fieldsDecision = new Dictionary<string, ArrayList>();
             ArrayList query = new ArrayList();
-            foreach (ArrayList arr in mandatory)
+            foreach (string fields in campos)
             {
-                foreach (CheckBox m in arr)
+                if (fields == "sexo")
                 {
-                    string key = valores.Keys.ElementAt(idx);
-                    if (key != "vagas")
+                    constructQueryWithTextField(Sexo, fields, mandatory[fields], query, fieldsDecision);
+                }
+                else if(fields == "cnh")
+                {
+                    constructQueryWithTextField(CNH, fields, mandatory[fields], query, fieldsDecision);
+                }
+                else if (fields == "estado_civil")
+                {
+                    constructQueryWithTextField(EstadoCivil, fields, mandatory[fields], query, fieldsDecision);
+                }
+                else if (fields == "especificacao_deficiencia")
+                {
+                    constructQueryWithTextField(Deficiencia, fields, mandatory[fields], query, fieldsDecision);
+                }
+                else if (fields == "idade")
+                {
+                    constructQueryWithIdadeField(Idade, fields, mandatory[fields], query, fieldsDecision);
+                }
+                else if (fields == "endereco")
+                {
+                    constructQueryWithEnderecoField(Estado, Cidade, Bairro, mandatory, query, fieldsDecision);
+                }
+                else if (fields == "desempregado")
+                {
+                    if (Desempregado.Checked == true)
                     {
-                        if (textFields.Contains(key))
-                        {
-                            constructQueryWithTextField(valores, key, m, query, fieldsDecision);
-                        } else if (intFields.Contains(key))
-                        {
-                            if (key == "objetivos.salario.min")
-                                constructQueryWithSalarioField(valores, key, m, query, fieldsDecision);
-                            else if (key == "idade")
-                                constructQueryWithIdadeField(valores, key, m, query, fieldsDecision);
-                            else
-                                constructQueryWithExperienciaField(valores, key, m, query, fieldsDecision);
-                        } else if (dateFields.Contains(key))
-                        {
-
-                        }
+                        ArrayList arrayValue = new ArrayList();
+                        arrayValue.Add(true);
+                        fieldsDecision.Add(fields, arrayValue);
                     }
+                }
+                else if (fields == "disponibilidade_viagem")
+                {
+                    if (DisponibilidadeViagens.Checked == true)
+                    {
+                        ArrayList arrayValue = new ArrayList();
+                        arrayValue.Add(true);
+                        fieldsDecision.Add(fields, arrayValue);
+                    }
+                }
+                else if (fields == "experiencia")
+                {
+                    constructQueryWithExperienciaField(Cargo, Experiencia, NivelCargo, mandatory, query, fieldsDecision);
+                }
+                else if (fields == "objetivos.salario.min")
+                {
+                    constructQueryWithSalarioField(Salario, fields, mandatory[fields], query, fieldsDecision);
+                }
+                else if (fields == "idiomas")
+                {
+                    constructQueryWithIdiomasField(Idioma, NivelIdioma, mandatory, query, fieldsDecision);
+                }
+                else if (fields == "formacao")
+                {
+                    constructQueryWithFormacaoField(Curso, Grau, InicioEscolaridade, FimEscolaridade, mandatory, query, fieldsDecision);
+                }
+                else if (fields == "competencias")
+                {
+                    constructQueryWithCompetenciasField(Area, Competencias1, Competencias2, Competencias3, mandatory, query, fieldsDecision);
                 }
                 idx++;
             }
